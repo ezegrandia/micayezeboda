@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mica & Eze</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Open+Sans:wght@300;400;700&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <section id="inicio" class="hero-section">
+        <img src="assets/bg-principal-1.jpg" alt="Fondo romántico" class="hero-bg" />
+
+        <!-- Decoraciones -->
+        <img src="assets/marco-hojas-1-sup.svg" alt="Decoración" class="decor decor-left" />
+        <img src="assets/marco-hojas-1-inf.svg" alt="Decoración" class="decor decor-right" />
+
+        <!-- Contenido principal -->
+        <div class="hero-content">
+            <div class="hero-container">
+                <div class="fecha-linea">
+                    <div class="linea"></div>
+                    <h2 class="fecha">07.12.2025</h2>
+                    <div class="linea"></div>
+                </div>
+
+                <h1 class="nombres">
+                    <span class="nombre-part">Mica</span>
+                    <span class="amp">&</span>
+                    <span class="nombre-part">Eze</span>
+                </h1>
+
+                <div class="frase-con-comillas">
+                    <img src="assets/comilla-apertura.svg" alt="Comilla apertura" class="comilla-svg" />
+                    <p class="frase">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <img src="assets/comilla-cierre.svg" alt="Comilla cierre" class="comilla-svg" />
+                    <div class="frase-linea"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Flecha abajo -->
+        <a href="#contador" class="scroll-down">
+            <img src="assets/flecha.svg" alt="Scroll hacia abajo" />
+        </a>
+    </section>
+
+    <canvas id="animacion-lottie" width="100" height="100"
+        style="position: fixed; top: 20px; right: 20px; z-index: 9999; cursor: pointer;"></canvas>
+
+    <audio id="musica-fondo" src="assets/musica.mp3" loop preload="auto"></audio>
+
+    <script type="module">
+        import { DotLottie } from "https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-web/+esm";
+
+        const canvas = document.getElementById("animacion-lottie");
+        const audio = document.getElementById("musica-fondo");
+
+        // Inicializamos animación con autoplay activo
+        const animacion = new DotLottie({
+            autoplay: true,
+            loop: true,
+            canvas: canvas,
+            src: "https://lottie.host/f4e27181-f0d9-43bc-b213-f5ac7f22aecf/6lVqZ9zSkE.lottie"
+        });
+
+        // Intentamos arrancar el audio apenas cargue la página
+        window.addEventListener('load', () => {
+            audio.play().catch(err => console.warn("Error al reproducir audio:", err));
+        });
+
+        let reproduciendo = true;
+
+        // Toggle play/pause al click
+        canvas.addEventListener("click", () => {
+            if (reproduciendo) {
+                animacion.pause();
+                audio.pause();
+            } else {
+                animacion.play();
+                audio.play().catch(err => console.warn("Error al reproducir audio:", err));
+            }
+            reproduciendo = !reproduciendo;
+        });
+    </script>
+
+
+
+</body>
+
+</html>
