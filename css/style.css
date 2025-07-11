@@ -1,9 +1,18 @@
 :root {
+    --color-1: #4a6360; /* Verde oscuro */
+    --color-2: #81948b; /* Verde intermedio */
+    --color-3: #c6d7cd; /* Verde claro / gris verdoso */
+    --color-4: #faf7f3; /* Casi blanco */
+    --color-5: #efede7; /* Beige muy claro */
+    --color-6: #868686; /* Gris */
+    --color-7: #bfa880; /* Dorado suave */
+
+    --color-texto: var(--color-4); /* Texto bien claro */
+    --color-fondo: var(--color-1); /* Fondo base */
+    --color-overlay: rgba(0, 0, 0, 0.5); /* Para oscurecer imágenes */
+
     --font-titulo: "Cookie", cursive;
     --font-texto: "Open Sans", sans-serif;
-
-    --color-texto: #ffffff;
-    --color-overlay: rgba(0, 0, 0, 0.5);
 
     --tam-h1: 8rem;
     --tam-h2: 1.6rem;
@@ -16,6 +25,7 @@ body {
     margin: 0;
     font-family: var(--font-texto);
     color: var(--color-texto);
+    background-color: var(--color-fondo);
     overflow-x: hidden;
 }
 
@@ -48,7 +58,7 @@ body {
     max-width: 800px;
     margin: 0 auto;
     width: 100%;
-    padding: 0 20px;
+    padding: 0 30px;
     /* border: 2px solid blue; */
 }
 
@@ -58,7 +68,7 @@ body {
     height: 100vh;
     object-fit: cover;
     object-position: center;
-    filter: brightness(0.5);
+    filter: grayscale(20%) brightness(0.6) contrast(70%);
     z-index: 1;
 }
 
@@ -78,13 +88,12 @@ body {
     font-family: var(--font-texto);
     padding: 0 20px; /* separación interna izquierda/derecha */
     white-space: nowrap;
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.8);
 }
 
 .linea {
     flex: 1;
-    height: 1px;
     background-color: var(--color-texto);
-    opacity: 0.5;
 }
 
 .nombres {
@@ -97,6 +106,7 @@ body {
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8);
 }
 
 .nombre-part {
@@ -132,14 +142,20 @@ body {
     margin: 2px 20px;
     text-align: center;
     color: var(--color-texto);
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
 }
 
 .frase-linea {
     width: 100%;
-    height: 1px;
     background-color: var(--color-texto);
-    opacity: 0.5;
-    margin-top: 8px;
+    margin-top: 60px;
+}
+
+.linea,
+.frase-linea {
+    /* background-color: var(--color-7); */
+    opacity: 0.7;
+    height: 0.5px;
 }
 
 /* Decoraciones */
@@ -147,7 +163,7 @@ body {
     position: absolute;
     pointer-events: none;
     z-index: 1;
-    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.7));
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.9));
     height: 40%;
 }
 .decor-left {
@@ -171,16 +187,13 @@ body {
 }
 
 /* Flecha */
-.scroll-down {
+.scroll-down-lottie {
     position: absolute;
-    bottom: 20px;
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
-}
-.scroll-down img {
-    width: 24px;
-    animation: updown 2s infinite;
+    pointer-events: none; /* <- si no querés que se pueda hacer clic */
 }
 
 @keyframes updown {

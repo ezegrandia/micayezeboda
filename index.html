@@ -37,16 +37,18 @@
                     <img src="assets/comilla-apertura.svg" alt="Comilla apertura" class="comilla-svg" />
                     <p class="frase">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     <img src="assets/comilla-cierre.svg" alt="Comilla cierre" class="comilla-svg" />
-                    <div class="frase-linea"></div>
                 </div>
+                <div class="frase-linea"></div>
             </div>
         </div>
 
 
         <!-- Flecha abajo -->
-        <a href="#contador" class="scroll-down">
-            <img src="assets/flecha.svg" alt="Scroll hacia abajo" />
-        </a>
+        <div class="scroll-down-lottie">
+            <canvas id="flecha-lottie" width="80" height="80"></canvas>
+        </div>
+
+
     </section>
 
     <canvas id="animacion-lottie" width="100" height="100"
@@ -60,33 +62,51 @@
         const canvas = document.getElementById("animacion-lottie");
         const audio = document.getElementById("musica-fondo");
 
-        // Inicializamos animación con autoplay activo
+        let reproduciendo = true;
+
         const animacion = new DotLottie({
             autoplay: true,
             loop: true,
             canvas: canvas,
-            src: "https://lottie.host/f4e27181-f0d9-43bc-b213-f5ac7f22aecf/6lVqZ9zSkE.lottie"
+            src: "https://lottie.host/77be2807-af90-4f9c-b5ac-aae3ddede03d/sG1hLAvscN.lottie"
         });
 
-        // Intentamos arrancar el audio apenas cargue la página
-        window.addEventListener('load', () => {
-            audio.play().catch(err => console.warn("Error al reproducir audio:", err));
+        window.addEventListener("load", () => {
+            audio.play().catch(err => {
+                console.warn("Audio bloqueado hasta interacción del usuario:", err);
+            });
         });
 
-        let reproduciendo = true;
-
-        // Toggle play/pause al click
-        canvas.addEventListener("click", () => {
+        canvas.addEventListener("click", async () => {
             if (reproduciendo) {
-                animacion.pause();
                 audio.pause();
+                animacion.stop(); // vuelve al primer frame
             } else {
                 animacion.play();
-                audio.play().catch(err => console.warn("Error al reproducir audio:", err));
+                try {
+                    await audio.play();
+                } catch (err) {
+                    console.warn("Error al reproducir audio:", err);
+                }
             }
+
             reproduciendo = !reproduciendo;
         });
+
+        // Animación de flecha (scroll-down)
+        const flechaCanvas = document.getElementById("flecha-lottie");
+
+        const flechaAnimacion = new DotLottie({
+            autoplay: true,
+            loop: true,
+            canvas: flechaCanvas,
+            src: "https://lottie.host/9ca0482f-6e44-41a1-8c9e-fedb02f93e0b/O8XRFO56wK.lottie"
+        });
+
     </script>
+
+
+
 
 
 
