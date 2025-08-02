@@ -1,0 +1,119 @@
+.contador-section {
+    height: 450px;
+    position: relative;
+    /* border: 2px solid blue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.contenedor-ondas {
+    position: absolute;
+    /* border: 2px solid red; */
+    height: 400px;
+    /* overflow: hidden; */
+    width: 100%;
+    bottom: 0;
+}
+
+/* Estilo común para todas las ondas */
+.onda {
+    width: 100%;
+    height: 500px;
+    position: absolute;
+    bottom: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; /* importante para alinear bien las ondas */
+}
+
+/* Z-index para superposición */
+.onda-1 {
+    background-image: url("../assets/img/onda-1.svg");
+    z-index: 10;
+}
+
+.onda-2 {
+    background-image: url("../assets/img/onda-2.svg");
+    z-index: 11;
+}
+
+.onda-3 {
+    background-image: url("../assets/img/onda-3.svg");
+    z-index: 12;
+}
+
+.circulo-contenedor {
+    position: relative;
+    /* border: 2px solid red; */
+    height: 400px;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circulo-contador {
+    height: 400px;
+    width: 400px;
+    background-image: url("../assets/img/circulo-contador.svg");
+    position: absolute;
+    z-index: 14;
+}
+
+.circulo-contador-shadow {
+    z-index: 13;
+    filter: drop-shadow(0px 0px 30px rgba(0, 0, 0, 1));
+}
+
+.circulo-contador-decor {
+    height: 600px;
+    width: 600px;
+    background-image: url("../assets/img/circulo-contador-decorador.svg");
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 15;
+    transform: translateX(23px);
+    /* filter: drop-shadow(0px 0px 30px rgba(0, 0, 0, 0.8)); */
+}
+
+.circulo-contador-decor-shadow {
+    z-index: 13;
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
+}
+
+.section-itinerario {
+    height: 100vh;
+    background-color: #efede7;
+}
+
+/* ======================== */
+/* RESPONSIVO */
+/* ======================== */
+
+@media screen and (max-width: 450px) {
+    .contador-section {
+        height: 200px;
+        margin-top: 150px;
+    }
+    .contenedor-ondas {
+        height: 200px;
+    }
+    .onda {
+        height: 200px;
+    }
+    .circulo-contenedor {
+        height: 280px;
+        width: 280px;
+    }
+    .circulo-contador {
+        height: 280px;
+        width: 280px;
+    }
+    .circulo-contador-decor {
+        height: 420px;
+        width: 420px;
+        transform: translateX(17px);
+    }
+}

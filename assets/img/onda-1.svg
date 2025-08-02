@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1305.57 404.09">
+  <!-- Generator: Adobe Illustrator 29.6.1, SVG Export Plug-In . SVG Version: 2.1.1 Build 9)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #fff;
+      }
+
+      .st1 {
+        fill: none;
+      }
+
+      .st2 {
+        fill: #81948b;
+      }
+
+      .st3 {
+        display: none;
+      }
+
+      .st4 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="st1" x="0" y="142" width="1305.57" height="262.09"/>
+    </clipPath>
+  </defs>
+  <g id="Capa_1">
+    <g class="st4">
+      <path class="st2" d="M0,276.87c62.92-115.13,151.97-146.72,264.52-131.17,112.55,15.54,248.59,78.22,365.12,94.13,116.53,15.91,213.55-14.94,322.78-46.87,109.23-31.92,230.66-64.92,353.16-5.95v336.95H0v-247.1Z"/>
+    </g>
+  </g>
+  <g id="Circulo" class="st3">
+    <circle class="st0" cx="960" cy="109.96" r="250"/>
+  </g>
+</svg>

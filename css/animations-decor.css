@@ -1,0 +1,51 @@
+/* Base: todo fuera de pantalla */
+.decor-sup {
+    transform: translateY(-200px);
+    opacity: 0;
+}
+
+.decor-inf {
+    transform: translateX(-200px);
+    opacity: 0;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideRight {
+    from {
+        transform: translateX(-200px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.decor-sup.animate {
+    animation: slideDown 1s forwards;
+}
+
+.decor-inf.animate {
+    animation: slideRight 1s forwards;
+}
+
+/* Parte 2: con delay */
+.decor-sup-2.animate {
+    animation: slideDown 1.3s forwards;
+    animation-delay: 0.5s; /* Retraso */
+}
+
+.decor-inf-2.animate {
+    animation: slideRight 1.3s forwards;
+    animation-delay: 0.5s; /* Retraso */
+}

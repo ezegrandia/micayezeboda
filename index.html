@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mica & Eze Prueba</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/contador.css">
+    <link rel="stylesheet" href="css/animations-decor.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Open+Sans:wght@300;400;700&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body class="body">
+    <!-- Seccion 1 - main -->
+    <section class="section-main">
+        <!-- Imagen -->
+        <img src="assets//img/bg-principal-1.jpg" alt="Fondo romántico" class="main-img" />
+        <div class="main-container">
+            <!-- Decoraciones -->
+            <!-- Decoraciones SUP -->
+            <img src="assets/img/decor-main-sup-1.svg" alt="Decoración" class="decor decor-sup decor-sup-1" />
+            <img src="assets/img/decor-main-sup-2.svg" alt="Decoración" class="decor decor-sup decor-sup-2" />
+            <!-- Decoraciones INF -->
+            <img src="assets/img/decor-main-inf-1.svg" alt="Decoración" class="decor decor-inf decor-inf-1" />
+            <img src="assets/img/decor-main-inf-2.svg" alt="Decoración" class="decor decor-inf decor-inf-2" />
+            <!-- Contenido -->
+            <div class=" main-content">
+                <div class="fecha-linea-container">
+                    <div class="linea"></div>
+                    <h2 class="fecha">07.12.2025</h2>
+                    <div class="linea"></div>
+                </div>
+                <h1 class="nombres">
+                    <span class="nombre nombre-1">Mica</span>
+                    <span class="amp">&</span>
+                    <span class="nombre nombre-2">Eze</span>
+                </h1>
+                <div class="linea-inf"></div>
+                <div class="frase-container">
+                    <img src="assets/img/comilla-apertura.svg" alt="Comilla apertura" class="comilla-svg" />
+                    <p class="frase">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <img src="assets/img/comilla-cierre.svg" alt="Comilla cierre" class="comilla-svg" />
+                </div>
+                <!-- Animación Lottie -->
+                <canvas class="music-btn" id="animacion-lottie" width="100" height="100"></canvas>
+                <!-- Icono estático -->
+                <img class="music-btn music-btn-img" id="icono-estatico" src="assets/img/icono-musica.svg">
+                <!-- Audio -->
+                <audio id="musica-fondo" src="assets/music/musica.mp3" loop preload="auto"></audio>
+            </div>
+        </div>
+    </section>
+    <!-- Sección 2 - Contador -->
+    <div class="contador-section">
+        <div class="contenedor-ondas">
+            <div class="onda-1 onda"></div>
+            <div class="onda-2 onda"></div>
+            <div class="onda-3 onda"></div>
+        </div>
+        <div class="circulo-contenedor">
+            <div class="circulo-contador"></div>
+            <div class="circulo-contador circulo-contador-shadow"></div>
+            <div class="circulo-contador-decor"></div>
+            <div class="circulo-contador-decor circulo-contador-decor-shadow"></div>
+        </div>
+    </div>
+    <!-- Sección 3 - itinerario -->
+    <section class="section-itinerario"></section>
+    <!-- Scripts -->
+    <script type="module" src="js/music-control.js"></script>
+    <script src="js/animations-decor.js"></script>
+</body>
+
+</html>

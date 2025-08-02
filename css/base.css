@@ -1,0 +1,27 @@
+:root {
+    --color-1: #4a6360;
+    --color-2: #81948b;
+    --color-3: #c6d7cd;
+    --color-4: #faf7f3;
+    --color-5: #efede7;
+    --color-6: #868686;
+    --color-7: #bfa880;
+
+    --color-texto: var(--color-4);
+    --color-fondo: var(--color-1);
+    --color-overlay: rgba(0, 0, 0, 0.5);
+
+    --font-titulo: "Cookie", cursive;
+    --font-texto: "Open Sans", sans-serif;
+
+    --tam-h1: 8rem;
+    --tam-h2: 1.6rem;
+    --tam-h3: 1.6rem;
+
+    --espacio-seccion: 80px;
+}
+
+.body {
+    font-family: var(--font-texto);
+    color: var(--color-texto);
+}
