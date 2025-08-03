@@ -23,6 +23,7 @@
 
 .main-content {
     padding: 0px 30px;
+    border: 2px solid red;
 }
 
 .main-container,
