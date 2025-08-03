@@ -1,13 +1,13 @@
 .section-main {
     height: calc(var(--real-vh, 1vh) * 100);
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .main-img {
-    height: calc(var(--real-vh, 1vh) * 110);
+    height: calc(var(--real-vh, 1vh) * 100);
     position: fixed;
     object-fit: cover;
     object-position: center;
@@ -17,7 +17,7 @@
 
 .main-container {
     height: calc(var(--real-vh, 1vh) * 90);
-    border: 2px solid green;
+    /* border: 2px solid green; */
     /* border: 2px solid blue; */
     display: flex;
     justify-content: center;
@@ -28,7 +28,7 @@
 
 .main-content {
     padding: 0px 30px;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     height: calc(var(--real-vh, 1vh) * 90);
 }
 
