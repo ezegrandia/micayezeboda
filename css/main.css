@@ -1,13 +1,13 @@
 .section-main {
-    height: 90dvh;
-    border: 2px solid green;
+    height: calc(var(--real-vh, 1vh) * 90);
+    border: 2px solid blue;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .main-img {
-    height: 110dvh;
+    height: calc(var(--real-vh, 1vh) * 110);
     position: fixed;
     object-fit: cover;
     object-position: center;
@@ -16,7 +16,7 @@
 }
 
 .main-container {
-    height: 90%;
+    height: calc(var(--real-vh, 1vh) * 90);
     /* border: 2px solid blue; */
     display: flex;
     justify-content: center;
