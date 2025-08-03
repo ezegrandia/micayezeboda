@@ -1,6 +1,7 @@
 .section-main {
-    height: calc(var(--real-vh, 1vh) * 90);
-    /* border: 2px solid blue; */
+    /* height: calc(var(--real-vh, 1vh) * 90); */
+    height: 100dvh;
+    border: 2px solid blue;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,7 +9,7 @@
 }
 
 .main-img {
-    height: 110dvh;
+    height: 100dvh;
     position: fixed;
     object-fit: cover;
     object-position: center;
@@ -17,8 +18,9 @@
 }
 
 .main-container {
-    height: calc(var(--real-vh, 1vh) * 90);
-    /* border: 2px solid green; */
+    /* height: calc(var(--real-vh, 1vh) * 90); */
+    height: 100dvh;
+    border: 2px solid green;
     /* border: 2px solid blue; */
     display: flex;
     justify-content: center;
