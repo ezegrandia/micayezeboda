@@ -1,13 +1,14 @@
 .section-main {
-    height: calc(var(--real-vh, 1vh) * 100);
+    height: calc(var(--real-vh, 1vh) * 90);
     /* border: 2px solid blue; */
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: visible;
 }
 
 .main-img {
-    height: 100vh;
+    height: 110dvh;
     position: fixed;
     object-fit: cover;
     object-position: center;
@@ -28,8 +29,8 @@
 
 .main-content {
     padding: 0px 30px;
-    /* border: 2px solid red; */
-    height: calc(var(--real-vh, 1vh) * 90);
+    border: 2px solid red;
+    height: 80%;
 }
 
 .main-container,
@@ -47,7 +48,7 @@
     width: auto;
 }
 .decor-sup {
-    top: calc(-40px + env(safe-area-inset-bottom, 0));
+    top: 0;
     right: 0;
 }
 .decor-inf {
