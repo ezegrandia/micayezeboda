@@ -5,8 +5,8 @@
 }
 
 .decor-inf {
-    transform: translateX(-200px);
-    opacity: 1;
+    transform: translateX(-100px);
+    opacity: 0;
 }
 
 @keyframes slideDown {
@@ -22,7 +22,7 @@
 
 @keyframes slideRight {
     from {
-        transform: translateX(-200px);
+        transform: translateX(-100px);
         opacity: 0;
     }
     to {

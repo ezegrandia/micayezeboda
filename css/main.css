@@ -1,5 +1,5 @@
 .section-main {
-    height: 90vh;
+    height: 100vh;
     /* border: 2px solid red; */
 }
 
@@ -13,7 +13,7 @@
 }
 
 .main-container {
-    height: 90vh;
+    height: 100vh;
     /* border: 2px solid blue; */
     display: flex;
     justify-content: center;
@@ -170,6 +170,10 @@
         width: 100px;
         bottom: 20px;
     }
+
+    .decor {
+        height: 50%;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -186,6 +190,9 @@
 @media screen and (max-width: 480px) {
     .nombres {
         flex-direction: column;
+    }
+    .decor {
+        height: 30%;
     }
 }
 
