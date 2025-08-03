@@ -1,5 +1,5 @@
 .section-main {
-    height: 80svh;
+    height: 80vh;
     /* border: 2px solid red; */
 }
 
@@ -13,7 +13,7 @@
 }
 
 .main-container {
-    height: 80svh;
+    height: 80vh;
     /* border: 2px solid blue; */
     display: flex;
     justify-content: center;
@@ -90,6 +90,7 @@
     font-size: var(--tam-h1);
     font-weight: 400;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
@@ -98,15 +99,15 @@
     margin-bottom: 30px;
 }
 
-.nombre {
-    display: inline-block;
-}
-
 .amp {
     font-size: 0.5em;
     vertical-align: middle;
     margin: 0 10px;
-    display: inline-block;
+}
+
+.nombre,
+.amp {
+    display: block;
 }
 
 .linea-inf {
@@ -183,13 +184,15 @@
         height: 40%;
     }
 }
-@media screen and (max-width: 420px) {
-    .decor {
-        height: 35%;
+
+@media screen and (max-width: 480px) {
+    .nombres {
+        flex-direction: column;
     }
-    .music-btn {
-        height: 90px;
-        width: 90px;
-        bottom: 20px;
+}
+
+@media screen and (max-width: 420px) {
+    .nombres {
+        flex-direction: column;
     }
 }
