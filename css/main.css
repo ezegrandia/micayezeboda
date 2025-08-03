@@ -1,10 +1,13 @@
 .section-main {
     height: 90vh;
-    /* border: 2px solid red; */
+    border: 2px solid blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .main-img {
-    height: 100vh;
+    height: 110vh;
     position: fixed;
     object-fit: cover;
     object-position: center;
@@ -13,12 +16,13 @@
 }
 
 .main-container {
-    height: 90vh;
+    height: 90%;
     /* border: 2px solid blue; */
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    /* position: relative; */
 }
 
 .main-content {
@@ -41,7 +45,7 @@
     width: auto;
 }
 .decor-sup {
-    top: 0;
+    top: calc(-40px + env(safe-area-inset-bottom, 0));
     right: 0;
 }
 .decor-inf {
