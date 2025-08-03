@@ -1,13 +1,13 @@
 .section-main {
-    height: 90vh;
-    border: 2px solid blue;
+    height: 90dvh;
+    border: 2px solid green;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .main-img {
-    height: 110vh;
+    height: 110dvh;
     position: fixed;
     object-fit: cover;
     object-position: center;
