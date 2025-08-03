@@ -7,7 +7,7 @@
 }
 
 .main-img {
-    height: calc(var(--real-vh, 1vh) * 100);
+    height: 100vh;
     position: fixed;
     object-fit: cover;
     object-position: center;
