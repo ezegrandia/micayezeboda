@@ -29,6 +29,7 @@
 .main-content {
     padding: 0px 30px;
     border: 2px solid red;
+    height: calc(var(--real-vh, 1vh) * 70);
 }
 
 .main-container,
@@ -199,6 +200,15 @@
     }
     .decor {
         height: 30%;
+    }
+    .fecha {
+        font-size: 1.2rem;
+    }
+    .nombres {
+        font-size: 7rem;
+    }
+    .frase {
+        font-size: 1.2rem;
     }
 }
 
