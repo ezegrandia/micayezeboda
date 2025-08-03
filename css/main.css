@@ -1,5 +1,5 @@
 .section-main {
-    height: 110vh;
+    height: 110dvh;
     /* border: 2px solid red; */
 }
 
@@ -13,7 +13,7 @@
 }
 
 .main-container {
-    height: 100vh;
+    height: 100dvh;
     /* border: 2px solid blue; */
     display: flex;
     justify-content: center;
