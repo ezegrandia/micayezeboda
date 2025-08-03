@@ -1,5 +1,5 @@
 .section-main {
-    height: calc(var(--real-vh, 1vh) * 90);
+    height: calc(var(--real-vh, 1vh) * 100);
     border: 2px solid blue;
     display: flex;
     justify-content: center;
@@ -17,6 +17,7 @@
 
 .main-container {
     height: calc(var(--real-vh, 1vh) * 90);
+    border: 2px solid black;
     /* border: 2px solid blue; */
     display: flex;
     justify-content: center;
