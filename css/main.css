@@ -31,7 +31,7 @@
 
 .main-content {
     padding: 0px 30px;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     height: 82%;
 }
 
@@ -204,11 +204,15 @@
     .decor {
         height: 30%;
     }
+    .fecha-linea-container {
+        margin-bottom: 10px;
+    }
     .fecha {
         font-size: 1.2rem;
     }
     .nombres {
         font-size: 7rem;
+        margin-bottom: 10px;
     }
     .frase {
         font-size: 1.2rem;
