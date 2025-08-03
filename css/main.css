@@ -1,5 +1,5 @@
 .section-main {
-    height: 100dvh;
+    height: 100svh;
     /* border: 2px solid red; */
 }
 
@@ -13,7 +13,7 @@
 }
 
 .main-container {
-    height: 100dvh;
+    height: 100svh;
     /* border: 2px solid blue; */
     display: flex;
     justify-content: center;
@@ -40,7 +40,9 @@
     right: 0;
 }
 .decor-inf {
-    bottom: calc(-100px + env(safe-area-inset-bottom, 0));
+    will-change: transform;
+    transform: translateZ(0);
+    bottom: calc(-90px + env(safe-area-inset-bottom, 0));
     left: 0;
 }
 
