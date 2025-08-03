@@ -1,5 +1,5 @@
 .section-main {
-    height: 110dvh;
+    height: 100dvh;
     /* border: 2px solid red; */
 }
 
@@ -40,7 +40,7 @@
     right: 0;
 }
 .decor-inf {
-    bottom: -105px;
+    bottom: calc(-100px + env(safe-area-inset-bottom, 0));
     left: 0;
 }
 
