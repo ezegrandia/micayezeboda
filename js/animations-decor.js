@@ -8,8 +8,6 @@ window.addEventListener("DOMContentLoaded", () => {
         (entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.remove("animate");
-                    void entry.target.offsetWidth;
                     entry.target.classList.add("animate");
                 } else {
                     entry.target.classList.remove("animate");
@@ -19,8 +17,11 @@ window.addEventListener("DOMContentLoaded", () => {
         { threshold: 0.1 }
     );
 
-    observer.observe(decorSup1);
-    observer.observe(decorSup2);
-    observer.observe(decorInf1);
-    observer.observe(decorInf2);
+    [decorSup1, decorSup2, decorInf1, decorInf2].forEach((decor) => {
+        if (decor) {
+            // Agregar animate al cargar para que estén visibles inicialmente
+            decor.classList.add("animate");
+            observer.observe(decor);
+        }
+    });
 });

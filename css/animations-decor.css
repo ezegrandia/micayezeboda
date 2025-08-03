@@ -6,7 +6,7 @@
 
 .decor-inf {
     transform: translateX(-200px);
-    opacity: 0;
+    opacity: 1;
 }
 
 @keyframes slideDown {
