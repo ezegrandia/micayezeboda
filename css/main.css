@@ -188,6 +188,20 @@
     .decor {
         height: 50%;
     }
+    .fecha {
+        font-size: 1.2rem;
+    }
+    .nombres {
+        flex-direction: column;
+        font-size: 6rem;
+        margin-bottom: 0px;
+    }
+    .amp {
+        font-size: 0.5em;
+    }
+    .frase {
+        font-size: 1.2rem;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -222,9 +236,6 @@
     }
 
     /* Resto de elementos */
-    .nombres {
-        flex-direction: column;
-    }
     .decor {
         height: 30%;
     }
@@ -232,19 +243,22 @@
         margin-bottom: 10px;
     }
     .fecha {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
     .nombres {
-        font-size: 7rem;
+        font-size: 5rem;
+        margin-bottom: 0px;
+    }
+    .amp {
+        font-size: 0.4em;
+    }
+    .linea-inf {
         margin-bottom: 10px;
     }
     .frase {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
-}
-
-@media screen and (max-width: 420px) {
-    .nombres {
-        flex-direction: column;
+    .comilla-svg {
+        width: 22px;
     }
 }
