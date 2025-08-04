@@ -88,7 +88,6 @@
 }
 
 .contador-palabra {
-    /* color: #a09e85; */
     color: var(--color-7);
     font-size: 3rem;
     font-weight: 300;
@@ -97,9 +96,6 @@
 }
 
 .contador-numeros-container {
-    /* height: 100px; */
-    /* width: 300px; */
-    /* border: 2px solid red; */
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
@@ -108,8 +104,6 @@
 
 .casillero-contador {
     width: 25%;
-    /* height: 100%; */
-    /* border: 2px solid green; */
     border-right: 1.5px solid #86868695;
     padding: 10px 20px;
     display: flex;
@@ -138,9 +132,8 @@
 }
 
 .corazon {
-    height: 60px;
-    width: 60px;
-    border: 2px solid blue;
+    height: 50px;
+    width: 50px;
 }
 
 .section-itinerario {
@@ -167,6 +160,24 @@
         width: 480px;
         transform: translateX(19px);
     }
+    .contador-palabra {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+    .casillero-contador {
+        padding: 10px 20px;
+    }
+    .tiempo-numero {
+        font-size: 2.2rem;
+        margin-bottom: 5px;
+    }
+    .tiempo-letra {
+        font-size: 1.3rem;
+    }
+    .corazon {
+        height: 30px;
+        width: 30px;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -182,6 +193,27 @@
         height: 370px;
         width: 370px;
         transform: translateX(14px);
+    }
+    .contador-palabra {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+    .casillero-contador {
+        padding: 10px 12px;
+    }
+    .tiempo-numero {
+        font-size: 1.8rem;
+        margin-bottom: 5px;
+    }
+    .tiempo-letra {
+        font-size: 1.3rem;
+    }
+    .corazon {
+        height: 25px;
+        width: 25px;
+    }
+    .contador-numeros-container {
+        margin-bottom: 10px;
     }
 }
 
@@ -208,5 +240,26 @@
         height: 270px;
         width: 270px;
         transform: translateX(11px);
+    }
+    .contador-palabra {
+        font-size: 1.6rem;
+        margin-bottom: 10px;
+    }
+    .casillero-contador {
+        padding: 8px 8px;
+    }
+    .tiempo-numero {
+        font-size: 1.4rem;
+        margin-bottom: 5px;
+    }
+    .tiempo-letra {
+        font-size: 1rem;
+    }
+    .corazon {
+        height: 25px;
+        width: 25px;
+    }
+    .contador-numeros-container {
+        margin-bottom: 10px;
     }
 }
