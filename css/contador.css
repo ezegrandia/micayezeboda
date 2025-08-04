@@ -55,8 +55,8 @@
 }
 
 .circulo-contador {
-    height: 400px;
-    width: 400px;
+    height: 410px;
+    width: 410px;
     background-image: url("../assets/img/circulo-contador.svg");
     position: absolute;
     z-index: 14;
@@ -72,8 +72,8 @@
 }
 
 .circulo-contador-decor {
-    height: 600px;
-    width: 600px;
+    height: 610px;
+    width: 610px;
     background-image: url("../assets/img/circulo-contador-decorador.svg");
     background-repeat: no-repeat;
     position: absolute;
@@ -148,16 +148,16 @@
 
 @media screen and (max-width: 1024px) {
     .circulo-contenedor {
-        height: 320px;
-        width: 320px;
+        height: 340px;
+        width: 340px;
     }
     .circulo-contador {
-        height: 320px;
-        width: 320px;
+        height: 340px;
+        width: 340px;
     }
     .circulo-contador-decor {
-        height: 480px;
-        width: 480px;
+        height: 500px;
+        width: 500px;
         transform: translateX(19px);
     }
     .contador-palabra {
@@ -182,16 +182,16 @@
 
 @media screen and (max-width: 768px) {
     .circulo-contenedor {
-        height: 250px;
-        width: 250px;
+        height: 260px;
+        width: 260px;
     }
     .circulo-contador {
-        height: 250px;
-        width: 250px;
+        height: 260px;
+        width: 260px;
     }
     .circulo-contador-decor {
-        height: 370px;
-        width: 370px;
+        height: 380px;
+        width: 380px;
         transform: translateX(14px);
     }
     .contador-palabra {
@@ -230,16 +230,16 @@
         height: 200px;
     }
     .circulo-contenedor {
-        height: 220px;
-        width: 220px;
+        height: 230px;
+        width: 230px;
     }
     .circulo-contador {
-        height: 220px;
-        width: 220px;
+        height: 230px;
+        width: 230px;
     }
     .circulo-contador-decor {
-        height: 320px;
-        width: 320px;
+        height: 330px;
+        width: 330px;
         transform: translateX(11px);
     }
     .contador-palabra {
