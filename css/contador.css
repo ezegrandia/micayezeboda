@@ -60,6 +60,10 @@
     background-image: url("../assets/img/circulo-contador.svg");
     position: absolute;
     z-index: 14;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .circulo-contador-shadow {
@@ -74,13 +78,69 @@
     background-repeat: no-repeat;
     position: absolute;
     z-index: 15;
-    transform: translateX(23px);
+    transform: translateX(24px);
     /* filter: drop-shadow(0px 0px 30px rgba(0, 0, 0, 0.8)); */
 }
 
 .circulo-contador-decor-shadow {
     z-index: 13;
     filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
+}
+
+.contador-palabra {
+    /* color: #a09e85; */
+    color: var(--color-7);
+    font-size: 3rem;
+    font-weight: 300;
+    font-family: var(--font-texto);
+    margin-bottom: 30px;
+}
+
+.contador-numeros-container {
+    /* height: 100px; */
+    /* width: 300px; */
+    /* border: 2px solid red; */
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.casillero-contador {
+    width: 25%;
+    /* height: 100%; */
+    /* border: 2px solid green; */
+    border-right: 1.5px solid #86868695;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.casillero-contador:last-child {
+    border-right: none;
+}
+
+.tiempo-numero {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-6);
+    font-family: var(--font-texto);
+    margin-bottom: 5px;
+}
+
+.tiempo-letra {
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: var(--color-7);
+    font-family: var(--font-texto);
+}
+
+.corazon {
+    height: 60px;
+    width: 60px;
+    border: 2px solid blue;
 }
 
 .section-itinerario {
@@ -147,6 +207,6 @@
     .circulo-contador-decor {
         height: 270px;
         width: 270px;
-        transform: translateX(10px);
+        transform: translateX(11px);
     }
 }

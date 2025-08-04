@@ -42,10 +42,10 @@
                 <div class="linea-inf"></div>
                 <div class="frase-container">
                     <img src="assets/img/comilla-apertura.svg" alt="Comilla apertura" class="comilla-svg" />
-                    <p class="frase">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p class="frase">Ni un momento ni la eternidad <br> Esto va más allá</p>
                     <img src="assets/img/comilla-cierre.svg" alt="Comilla cierre" class="comilla-svg" />
                 </div>
-                <!-- Animación Lottie -->
+                <!-- Animación Lottie Music Btn -->
                 <canvas class="music-btn" id="animacion-lottie" width="100" height="100"></canvas>
                 <!-- Icono estático -->
                 <img class="music-btn music-btn-img" id="icono-estatico" src="assets/img/icono-musica.svg">
@@ -62,7 +62,30 @@
             <div class="onda-3 onda"></div>
         </div>
         <div class="circulo-contenedor">
-            <div class="circulo-contador"></div>
+            <div class="circulo-contador">
+                <p class="contador-palabra">Falta</p>
+                <div class="contador-numeros-container">
+                    <div class="casillero-contador">
+                        <p class="tiempo-numero">10</p>
+                        <p class="tiempo-letra">días</p>
+                    </div>
+                    <div class="casillero-contador">
+                        <p class="tiempo-numero">10</p>
+                        <p class="tiempo-letra">hs</p>
+                    </div>
+                    <div class="casillero-contador">
+                        <p class="tiempo-numero">10</p>
+                        <p class="tiempo-letra">min</p>
+                    </div>
+                    <div class="casillero-contador">
+                        <p class="tiempo-numero">10</p>
+                        <p class="tiempo-letra">seg</p>
+                    </div>
+                </div>
+                <!-- <div class="corazon"></div> -->
+                <dotlottie-wc src="https://lottie.host/1113202c-6197-4576-be8a-b5dd80591cbd/xlXjSyH9gE.lottie"
+                    style="width: 50px;height: 50px" speed="1" autoplay loop></dotlottie-wc>
+            </div>
             <div class="circulo-contador circulo-contador-shadow"></div>
             <div class="circulo-contador-decor"></div>
             <div class="circulo-contador-decor circulo-contador-decor-shadow"></div>
@@ -71,8 +94,11 @@
     <!-- Sección 3 - itinerario -->
     <section class="section-itinerario"></section>
     <!-- Scripts -->
+    <!-- Music Btn -->
     <script type="module" src="js/music-control.js"></script>
-    <script src="js/ajuste-vh.js?v=19"></script>
+    <!-- Corazon -->
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
+    <!-- <script src="js/ajuste-vh.js?v=19"></script> -->
     <script src="js/animations-decor.js?v=19"></script>
 </body>
 
