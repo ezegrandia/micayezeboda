@@ -200,6 +200,7 @@
     }
     .casillero-contador {
         padding: 10px 12px;
+        border-right: 1px solid #86868695;
     }
     .tiempo-numero {
         font-size: 1.8rem;
@@ -247,6 +248,7 @@
     }
     .casillero-contador {
         padding: 8px 8px;
+        border-right: 0.8px solid #86868695;
     }
     .tiempo-numero {
         font-size: 1.4rem;
