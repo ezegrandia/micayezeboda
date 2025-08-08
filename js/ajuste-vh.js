@@ -1,9 +1,6 @@
-function setRealVH() {
+function updateRealVh() {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--real-vh", `${vh}px`);
 }
-
-window.addEventListener("resize", setRealVH);
-window.addEventListener("orientationchange", setRealVH); // Opcional, para mejorar en móviles
-
-setRealVH();
+window.addEventListener("resize", updateRealVh);
+updateRealVh();
