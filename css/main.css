@@ -1,6 +1,6 @@
 .section-main {
     /* height: calc(var(--real-vh, 1vh) * 90); */
-    height: 100svh;
+    height: 100dvh;
     /* border: 2px solid blue; */
     display: flex;
     justify-content: center;
@@ -9,7 +9,7 @@
 }
 
 .main-img {
-    height: 100svh;
+    height: 100dvh;
     /* width: 100%; */
     position: fixed;
     object-fit: cover;
