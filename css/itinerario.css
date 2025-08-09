@@ -1,7 +1,8 @@
 .section-itinerario {
-    height: 1700px;
+    /* height: 1700px; */
     width: 100%;
-    padding: 10px;
+    padding: 30px;
+    padding-bottom: 300px;
     background-color: #efede7;
 }
 
@@ -25,9 +26,105 @@
     text-shadow: 3px 3px 3px rgba(255, 255, 255, 0.9);
 }
 
+.itinerario-columnas-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: start;
+    margin-top: 100px;
+    /* border: 2px solid black; */
+}
+
+.itinerario-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    /* border: 2px solid green; */
+    /* height: 300px; */
+}
+
+.icono-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    /* border: 2px solid orange; */
+    border-radius: 10% 10% 0% 0%;
+    background-color: var(--color-4);
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.3));
+    /* margin-top: 500px; */
+    /* box-sizing: border-box; */
+}
+
+.icono-itinerario {
+    width: 100%;
+    height: 100%;
+    display: block;
+    /* border: 2px solid red; */
+}
+
+/* .icono-ceremonia {
+} */
+
+.icono-fiesta {
+    top: 0px;
+    transform: scale(0.85);
+    margin-top: 10px;
+}
+
+.banderin-itinerario {
+    width: 300px;
+    /* border: 2px solid blue; */
+    position: relative;
+    top: -4px;
+    /* z-index: 9; */
+}
+
+.itinerario-items-container {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+}
+
+.itinerario-item:first-child {
+    margin-top: 40px;
+}
+
+.itinerario-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 2px solid blue; */
+}
+
+.initenario-item-img {
+    width: 60px;
+    height: 60px;
+}
+
+.itinerario-item-texto {
+    font-family: var(--font-texto);
+    font-size: 1.3rem;
+    color: var(--color-1);
+    text-align: center;
+    margin-top: 20px;
+}
+
 /* ======================== */
 /* RESPONSIVO */
 /* ======================== */
+
+@media screen and (max-width: 1024px) {
+    .itinerario-columnas-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 100px;
+        margin-top: 300px;
+    }
+}
 
 @media screen and (max-width: 768px) {
     .titulo-seccion {
@@ -44,5 +141,22 @@
     }
     .subtitulo-seccion {
         font-size: 1.1rem;
+    }
+    .titulo-seccion {
+        text-shadow: 1px 1px 1px rgba(255, 255, 255, 1), 1px 1px 1px #000000;
+    }
+    .icono-container {
+        height: 150px;
+        width: 150px;
+    }
+    .banderin-itinerario {
+        width: 250px;
+    }
+    .itinerario-item-texto {
+        font-size: 1.1rem;
+    }
+    .initenario-item-img {
+        width: 50px;
+        height: 50px;
     }
 }
