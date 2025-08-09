@@ -189,7 +189,7 @@
     .circulo-contador-decor {
         height: 380px;
         width: 380px;
-        transform: translateX(14px);
+        transform: translateX(15.5px);
     }
     .contador-palabra {
         font-size: 2rem;
@@ -237,7 +237,7 @@
     .circulo-contador-decor {
         height: 330px;
         width: 330px;
-        transform: translateX(11px);
+        transform: translateX(13.5px);
     }
     .contador-palabra {
         font-size: 1.8rem;
