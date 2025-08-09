@@ -83,7 +83,7 @@
     background-repeat: no-repeat;
     position: absolute;
     z-index: 15;
-    transform: translate(18px, 15px);
+    transform: translate(17.5px, 14px);
 }
 
 .circulo-contador-decor-shadow {
@@ -156,7 +156,7 @@
     .circulo-contador-decor {
         height: 420px;
         width: 420px;
-        transform: translate(15px, 12px);
+        transform: translate(15.5px, 12px);
     }
     .contador-palabra {
         font-size: 2.5rem;
@@ -190,7 +190,7 @@
     .circulo-contador-decor {
         height: 320px;
         width: 320px;
-        transform: translate(12px, 8px);
+        transform: translate(12.5px, 8px);
     }
     .contador-palabra {
         font-size: 2rem;
@@ -238,7 +238,7 @@
     .circulo-contador-decor {
         height: 290px;
         width: 290px;
-        transform: translate(12px, 8px);
+        transform: translate(10.5px, 8px);
     }
     .contador-palabra {
         font-size: 1.8rem;
