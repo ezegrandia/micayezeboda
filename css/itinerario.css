@@ -19,7 +19,7 @@
 .subtitulo-seccion {
     font-family: var(--font-texto);
     font-size: 1.3rem;
-    color: #758a80;
+    color: var(--color-1);
     font-weight: 400;
     text-align: center;
     text-shadow: 3px 3px 3px rgba(255, 255, 255, 0.9);
