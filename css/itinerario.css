@@ -1,5 +1,48 @@
 .section-itinerario {
     height: 1700px;
     width: 100%;
+    padding: 10px;
     background-color: #efede7;
+}
+
+.titulo-seccion {
+    font-family: var(--font-titulo);
+    font-size: 5rem;
+    color: var(--color-1);
+    font-weight: 400;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 2px rgba(255, 255, 255, 1), 2px 2px 1px #000000;
+}
+
+.subtitulo-seccion {
+    font-family: var(--font-texto);
+    font-size: 1.3rem;
+    color: #758a80;
+    font-weight: 400;
+    text-align: center;
+    text-shadow: 3px 3px 3px rgba(255, 255, 255, 0.9);
+}
+
+/* ======================== */
+/* RESPONSIVO */
+/* ======================== */
+
+@media screen and (max-width: 768px) {
+    .titulo-seccion {
+        font-size: 4.5rem;
+    }
+    .subtitulo-seccion {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .titulo-seccion {
+        font-size: 4rem;
+    }
+    .subtitulo-seccion {
+        font-size: 1.1rem;
+    }
 }
