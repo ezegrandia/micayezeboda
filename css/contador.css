@@ -46,9 +46,8 @@
 
 .circulo-contenedor {
     position: relative;
-    /* border: 2px solid red; */
-    height: 400px;
-    width: 400px;
+    height: 410px;
+    width: 410px;
     display: flex;
     display: flex;
     align-items: center;
@@ -75,14 +74,16 @@
 }
 
 .circulo-contador-decor {
-    height: 610px;
-    width: 610px;
-    background-image: url("../assets/img/circulo-contador-decorador.svg");
+    height: 500px;
+    width: 500px;
+    /* background-position: center; */
+    background-size: contain;
+    /* background-image: url("../assets/img/circulo-contador-decorador.svg"); */
+    background-image: url("../assets/img/circulo-decor-1.png");
     background-repeat: no-repeat;
     position: absolute;
     z-index: 15;
-    transform: translateX(25px);
-    /* filter: drop-shadow(0px 0px 30px rgba(0, 0, 0, 0.8)); */
+    transform: translate(18px, 15px);
 }
 
 .circulo-contador-decor-shadow {
@@ -153,9 +154,9 @@
         width: 320px;
     }
     .circulo-contador-decor {
-        height: 500px;
-        width: 500px;
-        transform: translateX(21px);
+        height: 420px;
+        width: 420px;
+        transform: translate(15px, 12px);
     }
     .contador-palabra {
         font-size: 2.5rem;
@@ -187,9 +188,9 @@
         width: 240px;
     }
     .circulo-contador-decor {
-        height: 380px;
-        width: 380px;
-        transform: translateX(15.5px);
+        height: 320px;
+        width: 320px;
+        transform: translate(12px, 8px);
     }
     .contador-palabra {
         font-size: 2rem;
@@ -231,13 +232,13 @@
         width: 230px;
     }
     .circulo-contador {
-        height: 210px;
-        width: 210px;
+        height: 220px;
+        width: 220px;
     }
     .circulo-contador-decor {
-        height: 330px;
-        width: 330px;
-        transform: translateX(13.5px);
+        height: 290px;
+        width: 290px;
+        transform: translate(12px, 8px);
     }
     .contador-palabra {
         font-size: 1.8rem;
