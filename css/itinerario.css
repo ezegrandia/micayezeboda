@@ -113,6 +113,25 @@
     margin-top: 20px;
 }
 
+.itinerario-item-btn {
+    border: 2px solid var(--color-1);
+    color: var(--color-1);
+    font-family: var(--font-texto);
+    font-size: 1rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.itinerario-item-btn:hover {
+    background-color: var(--color-1);
+    color: #fff;
+}
+
 /* ======================== */
 /* RESPONSIVO */
 /* ======================== */

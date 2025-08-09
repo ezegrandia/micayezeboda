@@ -1,0 +1,112 @@
+(function () {
+    const modal = document.getElementById("galeriaModal");
+    const imagenModal = document.getElementById("imagenModal");
+    const cerrarBtn = modal.querySelector(".cerrar");
+    const flechaIzq = modal.querySelector(".izquierda");
+    const flechaDer = modal.querySelector(".derecha");
+    const contadorModal = document.getElementById("contadorModal");
+
+    let imagenes = [];
+    let indiceActual = 0;
+
+    // utility: abrir/cerrar con clase (evita depender del inline style)
+    function abrirModal(listaImagenes, indice = 0) {
+        if (!Array.isArray(listaImagenes) || listaImagenes.length === 0) return;
+        imagenes = listaImagenes.slice();
+        indiceActual = Math.max(0, Math.min(indice, imagenes.length - 1));
+        // bloquear scroll y abrir
+        document.body.style.overflow = "hidden";
+        modal.classList.add("open");
+        modal.setAttribute("aria-hidden", "false");
+        precargarImagenes();
+        mostrarImagen();
+    }
+
+    function cerrarModal() {
+        modal.classList.remove("open");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+    }
+
+    function mostrarImagen() {
+        if (!imagenes || imagenes.length === 0) return;
+        const src = imagenes[indiceActual];
+
+        // efecto de carga: ocultamos mientras carga
+        imagenModal.classList.add("is-loading");
+        // crear imagen para precargar y esperar load
+        const img = new Image();
+        img.src = src;
+        img.onload = function () {
+            imagenModal.src = src;
+            imagenModal.alt = `Imagen ${indiceActual + 1} de ${imagenes.length}`;
+            contadorModal.textContent = `${indiceActual + 1} / ${imagenes.length}`;
+            // tras pequeña espera para que el usuario vea fade, removemos clase loading
+            requestAnimationFrame(() => {
+                imagenModal.classList.remove("is-loading");
+            });
+        };
+        img.onerror = function () {
+            // en caso de error, mostramos algo neutro
+            imagenModal.classList.remove("is-loading");
+            imagenModal.alt = "Error cargando la imagen";
+            contadorModal.textContent = `${indiceActual + 1} / ${imagenes.length}`;
+        };
+    }
+
+    function navegarDerecha() {
+        if (!imagenes.length) return;
+        indiceActual = (indiceActual + 1) % imagenes.length;
+        mostrarImagen();
+    }
+
+    function navegarIzquierda() {
+        if (!imagenes.length) return;
+        indiceActual = (indiceActual - 1 + imagenes.length) % imagenes.length;
+        mostrarImagen();
+    }
+
+    function precargarImagenes() {
+        imagenes.forEach((src) => {
+            const i = new Image();
+            i.src = src;
+        });
+    }
+
+    // eventos
+    flechaDer?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        navegarDerecha();
+    });
+    flechaIzq?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        navegarIzquierda();
+    });
+    cerrarBtn?.addEventListener("click", cerrarModal);
+
+    modal.addEventListener("click", (e) => {
+        // click solo en overlay (fuera de .modal-contenido)
+        if (e.target === modal) cerrarModal();
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (!modal.classList.contains("open")) return;
+        if (e.key === "Escape") return cerrarModal();
+        if (e.key === "ArrowRight") return navegarDerecha();
+        if (e.key === "ArrowLeft") return navegarIzquierda();
+    });
+
+    // Exponer funciones globales mínimas para abrir desde tu markup
+    window.GaleriaModal = {
+        abrir: abrirModal,
+        cerrar: cerrarModal,
+    };
+
+    // Ejemplo: si quieres inicializar event listeners para tus elementos existentes
+    document.querySelectorAll(".iglesia-icon, .iglesia-texto, .iglesia-btn").forEach((el) => {
+        el.addEventListener("click", () => abrirModal(["assets/img/iglesia1.jpg", "assets/img/iglesia2.jpg"]));
+    });
+    document.querySelectorAll(".salon-icon, .salon-texto, .salon-btn").forEach((el) => {
+        el.addEventListener("click", () => abrirModal(["assets/img/salon1.jpg", "assets/img/salon2.jpg"]));
+    });
+})();

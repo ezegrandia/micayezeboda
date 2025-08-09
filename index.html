@@ -11,11 +11,23 @@
     <link rel="stylesheet" href="css/animations-decor.css?v=19">
     <link rel="stylesheet" href="css/contador.css?v=19">
     <link rel="stylesheet" href="css/itinerario.css?v=19">
+    <link rel="stylesheet" href="css/modal-iglesiaysalon.css">
     <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Open+Sans:wght@300;400;700&display=swap"
         rel="stylesheet" />
 </head>
 
+
 <body class="body">
+    <!-- Modal Galería Iglesia y Salon-->
+    <div id="galeriaModal" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar">&times;</span>
+            <span class="flecha izquierda">&#10094;</span>
+            <img id="imagenModal" src="" alt="Imagen de galería">
+            <span class="flecha derecha">&#10095;</span>
+        </div>
+        <div class="contador-modal-1" id="contadorModal"></div>
+    </div>
     <!-- Seccion 1 - main -->
     <section class="section-main">
         <!-- Imagen -->
@@ -117,12 +129,19 @@
                             <p class="itinerario-item-texto">Domingo 07 de Diciembre - 17:40hs</p>
                         </div>
                         <div class="itinerario-item">
-                            <img class="initenario-item-img" src="/assets/img/Iglesia.svg">
-                            <p class="itinerario-item-texto">Parroquia Nuestra Señora de Monserrat</p>
+                            <img class="initenario-item-img iglesia-icon" src="/assets/img/Iglesia.svg">
+                            <p class="itinerario-item-texto iglesia-texto">Parroquia Nuestra Señora de Monserrat</p>
+                            <button class="itinerario-item-btn iglesia-btn">Ver</button>
                         </div>
                         <div class="itinerario-item">
-                            <img class="initenario-item-img" src="/assets/img/maps-icon.svg">
-                            <p class="itinerario-item-texto">Paso de los Andes 2020, Godoy Cruz</p>
+                            <a href="https://maps.app.goo.gl/5rWDrYACGgenYiG77" target="_blank">
+                                <img class="initenario-item-img" src="/assets/img/maps-icon.svg">
+                            </a>
+                            <a href="https://maps.app.goo.gl/5rWDrYACGgenYiG77" target="_blank">
+                                <p class="itinerario-item-texto">Joaquín V. González 2020, Godoy Cruz</p>
+                            </a>
+                            <a class="itinerario-item-btn" href="https://maps.app.goo.gl/5rWDrYACGgenYiG77"
+                                target="_blank">Ir</a>
                         </div>
                     </div>
                 </div>
@@ -139,12 +158,19 @@
                             <p class="itinerario-item-texto">Domingo 07 de Diciembre - 19:30hs</p>
                         </div>
                         <div class="itinerario-item">
-                            <img class="initenario-item-img" src="/assets/img/bola-icono.svg">
-                            <p class="itinerario-item-texto">Terra Oliva - Salón de Eventos</p>
+                            <img class="initenario-item-img salon-icon" src="/assets/img/bola-icono.svg">
+                            <p class="itinerario-item-texto salon-texto">Terra Oliva - Salón de Eventos</p>
+                            <button class="itinerario-item-btn salon-btn">Ver</button>
                         </div>
                         <div class="itinerario-item">
-                            <img class="initenario-item-img" src="/assets/img/maps-icon.svg">
-                            <p class="itinerario-item-texto">Videla Aranda 351, Maipú</p>
+                            <a href="https://maps.app.goo.gl/TuggDiFX4MMVq4CR8" target="_blank">
+                                <img class="initenario-item-img" src="/assets/img/maps-icon.svg">
+                            </a>
+                            <a href="https://maps.app.goo.gl/TuggDiFX4MMVq4CR8" target="_blank">
+                                <p class="itinerario-item-texto">Videla Aranda 351, Maipú</p>
+                            </a>
+                            <a class="itinerario-item-btn" href="https://maps.app.goo.gl/TuggDiFX4MMVq4CR8"
+                                target="_blank">Ir</a>
                         </div>
                     </div>
                 </div>
@@ -159,6 +185,7 @@
     <script src="js/animations-decor.js?v=19"></script>
     <script src="js/ajuste-vh.js"></script>
     <script src="js/contador.js"></script>
+    <script src="js/modal-iglesiaysalon.js"></script>
 </body>
 
 </html>

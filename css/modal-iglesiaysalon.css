@@ -1,0 +1,187 @@
+:root {
+    --modal-padding: 20px;
+    --modal-maxwidth: 1200px;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background-color: rgba(22, 57, 52, 0.85);
+    padding: var(--modal-padding);
+    box-sizing: border-box;
+    display: none; /* cerrado por defecto */
+}
+
+/* Activar modal añadiendo la clase .open */
+.modal.open {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-contenido {
+    position: relative;
+    width: 70%;
+    max-width: var(--modal-maxwidth);
+    /* max-height calculado restando el padding del modal */
+    max-height: calc(100vh - (var(--modal-padding) * 2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    overflow: visible; /* flechas visibles */
+    margin: 0 auto;
+    /* border: 2px solid red; */
+}
+
+.modal-contenido .image-wrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 8px;
+}
+
+/* Imagen por defecto (desktop) */
+#imagenModal {
+    display: block;
+    width: 100%;
+    height: calc(100vh - (var(--modal-padding) * 2) - 32px);
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.6), 0 0 18px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.18s ease;
+    opacity: 1;
+}
+
+#imagenModal.is-loading {
+    opacity: 0;
+}
+
+.cerrar {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    font-size: 34px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 10020;
+    background: rgba(0, 0, 0, 0.7);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    line-height: 1;
+}
+
+.flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 36px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 10010;
+    user-select: none;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.izquierda {
+    left: 18px;
+}
+.derecha {
+    right: 18px;
+}
+
+.contador-modal-1 {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10020;
+    color: white;
+    font-size: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 6px 10px;
+    border-radius: 6px;
+    pointer-events: none;
+}
+
+/* ======================== */
+/* RESPONSIVO */
+/* ======================== */
+@media (max-width: 768px) {
+    .modal {
+        padding: 0;
+    }
+    .modal-contenido {
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        max-height: none;
+        padding: 0;
+    }
+    .modal-contenido .image-wrap {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+    }
+    #imagenModal {
+        width: 90%;
+        height: 90%;
+        max-width: none;
+        max-height: none;
+        object-fit: cover; /* llena todo y recorta */
+        /* border-radius: 0; */
+    }
+    .cerrar {
+        top: 60px;
+        right: 60px;
+        /* background: rgba(0, 0, 0, 0.7); */
+    }
+
+    .flecha {
+        font-size: 20px;
+        width: 30px;
+        height: 30px;
+        /* background: rgba(0, 0, 0, 0.7); */
+    }
+    .izquierda {
+        left: 60px;
+    }
+    .derecha {
+        right: 60px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .cerrar {
+        top: 60px;
+        right: 30px;
+        /* background: rgba(0, 0, 0, 0.7); */
+    }
+
+    .flecha {
+        font-size: 20px;
+        width: 30px;
+        height: 30px;
+        /* background: rgba(0, 0, 0, 0.7); */
+    }
+    .izquierda {
+        left: 30px;
+    }
+    .derecha {
+        right: 30px;
+    }
+}

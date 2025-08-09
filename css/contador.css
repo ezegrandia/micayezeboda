@@ -83,7 +83,7 @@
     background-repeat: no-repeat;
     position: absolute;
     z-index: 15;
-    transform: translate(17.5px, 14px);
+    transform: translate(17.5px, 15px);
 }
 
 .circulo-contador-decor-shadow {
