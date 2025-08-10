@@ -139,23 +139,24 @@
     }
     #imagenModal {
         width: 90%;
-        height: 90%;
+        height: 60%;
         max-width: none;
         max-height: none;
         object-fit: cover; /* llena todo y recorta */
         /* border-radius: 0; */
     }
     .cerrar {
-        top: 60px;
+        font-size: 28px;
+        width: 35px;
+        height: 35px;
+        top: 190px;
         right: 60px;
-        /* background: rgba(0, 0, 0, 0.7); */
     }
 
     .flecha {
         font-size: 20px;
         width: 30px;
         height: 30px;
-        /* background: rgba(0, 0, 0, 0.7); */
     }
     .izquierda {
         left: 60px;
@@ -163,15 +164,16 @@
     .derecha {
         right: 60px;
     }
+    .contador-modal-1 {
+        bottom: 100px;
+    }
 }
 
 @media screen and (max-width: 480px) {
     .cerrar {
-        top: 60px;
+        top: 180px;
         right: 30px;
-        /* background: rgba(0, 0, 0, 0.7); */
     }
-
     .flecha {
         font-size: 20px;
         width: 30px;
@@ -183,5 +185,8 @@
     }
     .derecha {
         right: 30px;
+    }
+    .contador-modal-1 {
+        bottom: 100px;
     }
 }
