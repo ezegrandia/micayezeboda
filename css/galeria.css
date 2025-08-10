@@ -1,0 +1,16 @@
+.galeria-section {
+    height: 1500px;
+    width: 100%;
+    background-color: #ebe9e3;
+    padding: 100px 20px 30px;
+}
+
+.titulo-seccion-galeria {
+    margin-top: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .galeria-section {
+        padding-top: 30px;
+    }
+}

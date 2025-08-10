@@ -3,7 +3,7 @@
     width: 100%;
     padding: 30px;
     padding-bottom: 300px;
-    background-color: #efede7;
+    background-color: #f9f6f2;
 }
 
 .titulo-seccion {
@@ -155,6 +155,9 @@
 }
 
 @media screen and (max-width: 480px) {
+    .section-itinerario {
+        padding-bottom: 300px;
+    }
     .titulo-seccion {
         font-size: 4rem;
     }

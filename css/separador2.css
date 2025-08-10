@@ -1,0 +1,44 @@
+.separador {
+    /* height: 450px; */
+    position: relative;
+    /* border: 2px solid blue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 250px; */
+    /* top: -500px; */
+}
+
+.contenedor-ondas-2 {
+    position: relative;
+    height: 100px;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Z-index para superposición */
+.onda-4 {
+    background-image: url("../assets/img/onda-4.svg");
+    z-index: 10;
+}
+
+.onda-5 {
+    background-image: url("../assets/img/onda-5.svg");
+    z-index: 11;
+}
+
+.onda-6 {
+    background-image: url("../assets/img/onda-6.svg");
+    z-index: 12;
+}
+
+/* ======================== */
+/* RESPONSIVO */
+/* ======================== */
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-width: 480px) {
+    .contenedor-ondas-2 {
+        height: 50px;
+    }
+}

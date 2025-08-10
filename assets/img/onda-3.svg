@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1305.57 404.09">
-  <!-- Generator: Adobe Illustrator 29.6.1, SVG Export Plug-In . SVG Version: 2.1.1 Build 9)  -->
+<svg id="Capa_1" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1305.57 404.09">
+  <!-- Generator: Adobe Illustrator 29.7.1, SVG Export Plug-In . SVG Version: 2.1.1 Build 8)  -->
   <defs>
     <style>
       .st0 {
@@ -8,11 +8,11 @@
       }
 
       .st1 {
-        fill: none;
+        fill: #f9f6f2;
       }
 
       .st2 {
-        fill: #efede7;
+        fill: none;
       }
 
       .st3 {
@@ -24,12 +24,12 @@
       }
     </style>
     <clipPath id="clippath">
-      <rect class="st1" y="142" width="1305.57" height="262.09"/>
+      <rect class="st2" y="142" width="1305.57" height="262.09"/>
     </clipPath>
   </defs>
-  <g id="Capa_1">
+  <g id="Capa_11" data-name="Capa_1">
     <g class="st4">
-      <path class="st2" d="M0,339.79c160.29-98.8,281.13-114.4,393.65-106.6,112.52,7.8,216.7,39,295.15,67.02,78.44,28.02,131.14,52.87,230.64,74.82,99.49,21.96,245.78,41.02,386.14-17.91v166.84H0v-184.18Z"/>
+      <path class="st1" d="M0,339.79c160.29-98.8,281.13-114.4,393.65-106.6,112.52,7.8,216.7,39,295.15,67.02,78.44,28.02,131.14,52.87,230.64,74.82,99.49,21.96,245.78,41.02,386.14-17.91v166.84H0v-184.18h0Z"/>
     </g>
   </g>
   <g id="Circulo" class="st3">
