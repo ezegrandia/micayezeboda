@@ -87,7 +87,7 @@
         }
     }
 }
-@media screen and (max-width: 480px) {
+/* @media screen and (max-width: 480px) {
     @keyframes slideLeft {
         from {
             transform: translateX(100px);
@@ -98,4 +98,4 @@
             opacity: 1;
         }
     }
-}
+} */
