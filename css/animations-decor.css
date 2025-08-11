@@ -87,3 +87,15 @@
         }
     }
 }
+@media screen and (max-width: 480px) {
+    @keyframes slideLeft {
+        from {
+            transform: translateX(100px);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(-40px);
+            opacity: 1;
+        }
+    }
+}

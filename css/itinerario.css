@@ -192,11 +192,10 @@
 
 @media screen and (max-width: 480px) {
     .section-itinerario {
-        padding-bottom: 400px;
+        padding-bottom: 300px;
     }
     .decor-der {
-        height: 350px;
-        /* width: 350px; */
+        height: 280px;
         bottom: 3%;
     }
     .titulo-seccion {
