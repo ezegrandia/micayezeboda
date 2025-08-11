@@ -4,6 +4,7 @@
     padding: 30px;
     padding-bottom: 300px;
     background-color: #f9f6f2;
+    position: relative;
 }
 
 .titulo-seccion {
@@ -132,9 +133,24 @@
     color: #fff;
 }
 
+/* Decoradores */
+.decor-der {
+    right: -200px;
+    bottom: 25%;
+    height: 400px;
+}
+.decor-der-2 {
+    filter: none;
+}
+
 /* ======================== */
 /* RESPONSIVO */
 /* ======================== */
+@media screen and (max-width: 1200px) {
+    .decor-der {
+        height: 330px;
+    }
+}
 
 @media screen and (max-width: 1024px) {
     .itinerario-columnas-container {
@@ -143,20 +159,45 @@
         gap: 100px;
         margin-top: 300px;
     }
+    .decor-der {
+        height: 400px;
+        bottom: 37%;
+    }
 }
 
 @media screen and (max-width: 768px) {
+    .section-itinerario {
+        padding-bottom: 400px;
+    }
     .titulo-seccion {
         font-size: 4.5rem;
     }
     .subtitulo-seccion {
         font-size: 1.2rem;
     }
+    .decor-der {
+        bottom: 7%;
+        height: 350px;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .section-itinerario {
+        padding-bottom: 500px;
+    }
+    .decor-der {
+        bottom: 6%;
+    }
 }
 
 @media screen and (max-width: 480px) {
     .section-itinerario {
-        padding-bottom: 300px;
+        padding-bottom: 400px;
+    }
+    .decor-der {
+        height: 350px;
+        /* width: 350px; */
+        bottom: 3%;
     }
     .titulo-seccion {
         font-size: 4rem;

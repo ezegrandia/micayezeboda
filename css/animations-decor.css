@@ -9,6 +9,11 @@
     opacity: 0;
 }
 
+.decor-der {
+    transform: translateX(100px);
+    opacity: 0;
+}
+
 @keyframes slideDown {
     from {
         transform: translateY(-100px);
@@ -31,12 +36,27 @@
     }
 }
 
+@keyframes slideLeft {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 .decor-sup.animate {
     animation: slideDown 1s forwards;
 }
 
 .decor-inf.animate {
     animation: slideRight 1s forwards;
+}
+
+.decor-der.animate {
+    animation: slideLeft 1s forwards;
 }
 
 /* Parte 2: con delay */
@@ -48,4 +68,22 @@
 .decor-inf-2.animate {
     animation: slideRight 1.3s forwards;
     animation-delay: 0.5s; /* Retraso */
+}
+
+.decor-der-2.animate {
+    animation: slideLeft 1.3s forwards;
+    animation-delay: 0.5s; /* Retraso */
+}
+
+@media screen and (max-width: 768px) {
+    @keyframes slideLeft {
+        from {
+            transform: translateX(100px);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(-20px);
+            opacity: 1;
+        }
+    }
 }
