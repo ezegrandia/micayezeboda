@@ -139,14 +139,14 @@
     bottom: 25%;
     height: 400px;
 }
-.decor-der-2 {
+.decor-der-1 {
     filter: none;
 }
 
 /* ======================== */
 /* RESPONSIVO */
 /* ======================== */
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1270px) {
     .decor-der {
         height: 330px;
         right: -180px;
