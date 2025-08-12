@@ -218,7 +218,7 @@
 @media screen and (max-width: 480px) {
     .section-itinerario {
         padding-bottom: 320px;
-        padding-top: 100px;
+        padding-top: 130px;
         overflow: visible;
     }
     .decor-der {
@@ -230,7 +230,7 @@
     .decor-izq {
         height: 160px;
         left: -50px;
-        top: 40px;
+        top: 55px;
     }
     .titulo-seccion {
         font-size: 4rem;
