@@ -15,26 +15,68 @@
 
 .icono-galeria {
     position: relative;
-    /* top: -40px; */
     height: 300px;
     width: 300px;
 }
 
 .polaroid {
-    width: 600px;
-    height: 500px;
+    max-width: 700px;
+    width: 100%;
+    height: 550px; /* tamaño total de la tarjeta */
     background-color: #fff;
-    padding: 10px 10px 100px 10px;
+    padding: 10px 10px 100px 10px; /* marco inferior */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 2px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box; /* padding incluido en el alto total */
+    display: flex;
+    flex-direction: column;
 }
 
-.polaroid-img {
+.polaroid img {
+    flex: 1; /* la imagen ocupa todo el espacio disponible */
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
     border-radius: 5px;
+}
+
+.carrusel-container {
+    position: relative;
+    overflow: visible; /* ocultamos fuera del área visible */
+    width: 100%;
+    max-width: 100vw;
+    margin: 0 auto;
+}
+
+.carrusel {
+    display: flex;
+    align-items: center;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carrusel .polaroid {
+    flex: 0 0 auto;
+    margin: 0 20px;
+}
+
+.carrusel-indicadores {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.carrusel-indicadores button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background-color: #81948b;
+    cursor: pointer;
+}
+
+.carrusel-indicadores button.activo {
+    background-color: #4a6360;
 }
 
 /* ======================== */
@@ -42,8 +84,8 @@
 /* ======================== */
 @media screen and (max-width: 1024px) {
     .polaroid {
-        width: 500px;
-        height: 400px;
+        max-width: 500px;
+        height: 450px;
         padding-bottom: 85px;
     }
 }
@@ -53,16 +95,19 @@
         padding-top: 30px;
     }
     .polaroid {
-        width: 400px;
-        height: 350px;
+        max-width: 450px;
+        height: 400px;
         padding-bottom: 70px;
     }
 }
 
 @media screen and (max-width: 550px) {
+    .carrusel .polaroid {
+        margin: 0 10px; /* márgenes más pequeños en móvil */
+    }
     .polaroid {
-        width: 350px;
-        height: 350px;
+        max-width: 350px;
+        height: 320px;
         padding: 7px 7px 60px 7px;
     }
 }
@@ -70,14 +115,14 @@
 @media screen and (max-width: 480px) {
     .icono-galeria {
         height: 200px;
-        width: 200px;
+        max-width: 200px;
     }
 }
 
 @media screen and (max-width: 420px) {
     .polaroid {
         max-width: 310px;
-        width: auto;
+        /* width: auto; */
         height: 310px;
         padding: 5px 5px 50px 5px;
     }
