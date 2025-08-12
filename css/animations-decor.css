@@ -14,6 +14,11 @@
     opacity: 0;
 }
 
+.decor-izq {
+    transform: translateX(-100px);
+    opacity: 0;
+}
+
 @keyframes slideDown {
     from {
         transform: translateY(-100px);
@@ -59,6 +64,10 @@
     animation: slideLeft 1s forwards;
 }
 
+.decor-izq.animate {
+    animation: slideRight 1s forwards;
+}
+
 /* Parte 2: con delay */
 .decor-sup-2.animate {
     animation: slideDown 1.3s forwards;
@@ -72,6 +81,11 @@
 
 .decor-der-2.animate {
     animation: slideLeft 1.3s forwards;
+    animation-delay: 0.5s; /* Retraso */
+}
+
+.decor-izq-2.animate {
+    animation: slideRight 1.3s forwards;
     animation-delay: 0.5s; /* Retraso */
 }
 
