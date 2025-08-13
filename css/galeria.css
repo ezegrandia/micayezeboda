@@ -40,6 +40,10 @@
     border-radius: 5px;
 }
 
+.polaroid-img-2 {
+    object-position: top center;
+}
+
 .carrusel-container {
     position: relative;
     overflow: visible; /* ocultamos fuera del área visible */
@@ -76,7 +80,8 @@
 }
 
 .carrusel-indicadores button.activo {
-    background-color: #4a6360;
+    background-color: #3b4e4c;
+    transform: scale(1.4);
 }
 
 /* ======================== */
@@ -98,6 +103,10 @@
         max-width: 450px;
         height: 400px;
         padding-bottom: 70px;
+    }
+    .carrusel-indicadores {
+        margin-top: 50px;
+        gap: 40px;
     }
 }
 
