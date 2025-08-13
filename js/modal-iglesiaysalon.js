@@ -15,7 +15,9 @@
         imagenes = listaImagenes.slice();
         indiceActual = Math.max(0, Math.min(indice, imagenes.length - 1));
         // bloquear scroll y abrir
-        document.body.style.overflow = "hidden";
+        document.documentElement.style.overflow = "hidden"; // bloquea <html>
+        document.body.style.overflow = "hidden"; // bloquea <body>
+
         modal.classList.add("open");
         modal.setAttribute("aria-hidden", "false");
         precargarImagenes();
@@ -25,6 +27,7 @@
     function cerrarModal() {
         modal.classList.remove("open");
         modal.setAttribute("aria-hidden", "true");
+        document.documentElement.style.overflow = "";
         document.body.style.overflow = "";
     }
 
@@ -102,11 +105,24 @@
         cerrar: cerrarModal,
     };
 
-    // Ejemplo: si quieres inicializar event listeners para tus elementos existentes
+    // Listeners iglesia
     document.querySelectorAll(".iglesia-icon, .iglesia-texto, .iglesia-btn").forEach((el) => {
         el.addEventListener("click", () => abrirModal(["assets/img/iglesia1.jpg", "assets/img/iglesia2.jpg"]));
     });
+
+    // Listeners salón
     document.querySelectorAll(".salon-icon, .salon-texto, .salon-btn").forEach((el) => {
         el.addEventListener("click", () => abrirModal(["assets/img/salon1.jpg", "assets/img/salon2.jpg"]));
+    });
+
+    // 🔹 Listeners para la galería Polaroid
+    const polaroidImgs = document.querySelectorAll(".carrusel-container .polaroid img");
+    const listaPolaroids = Array.from(polaroidImgs).map((img) => img.src);
+
+    polaroidImgs.forEach((img, index) => {
+        img.style.cursor = "pointer"; // para indicar que es clickeable
+        img.addEventListener("click", () => {
+            abrirModal(listaPolaroids, index);
+        });
     });
 })();

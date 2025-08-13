@@ -40,10 +40,6 @@
     border-radius: 5px;
 }
 
-.polaroid-img-2 {
-    object-position: top center;
-}
-
 .carrusel-container {
     position: relative;
     overflow: visible; /* ocultamos fuera del área visible */
