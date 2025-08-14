@@ -43,6 +43,7 @@
 .onda-3 {
     background-image: url("../assets/img/onda-3.svg");
     z-index: 12;
+    /* border: 2px solid red; */
 }
 
 .circulo-contenedor {

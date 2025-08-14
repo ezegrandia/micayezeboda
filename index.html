@@ -14,12 +14,39 @@
     <link rel="stylesheet" href="css/modal-iglesiaysalon.css">
     <link rel="stylesheet" href="css/separador2.css">
     <link rel="stylesheet" href="css/galeria.css">
+    <link rel="stylesheet" href="css/entrada.css">
     <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Open+Sans:wght@300;400;700&display=swap"
         rel="stylesheet" />
 </head>
 
 
 <body class="body">
+    <!-- Pantalla de entrada -->
+    <div id="pantalla-entrada" class="pantalla-entrada">
+        <div class="entrada-contenido">
+            <!-- Sombra Superior -->
+            <img src="./assets/img/sombra-superior.svg" class="sombra sombra-superior">
+            <!-- Hojas superiores -->
+            <img src="./assets/img/guirnalda-sup.svg" alt="Hojas decorativas" class="hojas hojas-arriba">
+            <!-- Texto dentro de faja -->
+            <div class="faja-texto">
+                <h3 class="entrada-subtitulo">Bienvenidos a la invitación de</h3>
+                <div class="nombres-entrada-container">
+                    <p class="entrada-nombres">Mica</p>
+                    <p class="entrada-nombres entrada-nombres-amp">&</p>
+                    <p class="entrada-nombres">Eze</p>
+                </div>
+                <!-- <h1 class="entrada-nombres">Mica & Eze</h1> -->
+            </div>
+            <!-- Hojas inferiores -->
+            <img src="./assets/img/guirnalda-inf.svg" alt="Hojas decorativas" class="hojas hojas-abajo">
+            <!-- Sombra Inferior -->
+            <img src="./assets/img/sombra-inferior.png" class="sombra sombra-inferior">
+            <!-- Botón -->
+            <button id="btn-ingresar" class="btn-ingresar">Ingresar</button>
+        </div>
+    </div>
+
     <!-- Modal Galería Iglesia y Salon-->
     <div id="galeriaModal" class="modal">
         <div class="modal-contenido">
@@ -33,15 +60,15 @@
     <!-- Seccion 1 - main -->
     <section class="section-main">
         <!-- Imagen -->
-        <img src="assets/img/Edit2-Amplia-calidad5-Recorte.jpg" alt="Fondo romántico" class="main-img" />
+        <img src="./assets/img/Edit2-Amplia-calidad5-Recorte.jpg" alt="Fondo romántico" class="main-img" />
         <div class="main-container">
             <!-- Decoraciones -->
             <!-- Decoraciones SUP -->
-            <img src="assets/img/decor-main-sup-1.svg" alt="Decoración" class="decor decor-sup decor-sup-1" />
-            <img src="assets/img/decor-main-sup-2.svg" alt="Decoración" class="decor decor-sup decor-sup-2" />
+            <img src="./assets/img/decor-main-sup-1.svg" alt="Decoración" class="decor decor-sup decor-sup-1" />
+            <img src="./assets/img/decor-main-sup-2.svg" alt="Decoración" class="decor decor-sup decor-sup-2" />
             <!-- Decoraciones INF -->
-            <img src="assets/img/decor-main-inf-1.svg" alt="Decoración" class="decor decor-inf decor-inf-1" />
-            <img src="assets/img/decor-main-inf-2.svg" alt="Decoración" class="decor decor-inf decor-inf-2" />
+            <img src="./assets/img/decor-main-inf-1.svg" alt="Decoración" class="decor decor-inf decor-inf-1" />
+            <img src="./assets/img/decor-main-inf-2.svg" alt="Decoración" class="decor decor-inf decor-inf-2" />
             <!-- Contenido -->
             <div class=" main-content">
                 <h3 class="mini-frase">¡Nos casamos!</h3>
@@ -57,16 +84,16 @@
                 </div>
                 <div class="linea-inf"></div>
                 <div class="frase-container">
-                    <img src="assets/img/comilla-apertura.svg" alt="Comilla apertura" class="comilla-svg" />
+                    <img src="./assets/img/comilla-apertura.svg" alt="Comilla apertura" class="comilla-svg" />
                     <p class="frase">Ni un momento, ni la eternidad <br> Esto va más allá</p>
-                    <img src="assets/img/comilla-cierre.svg" alt="Comilla cierre" class="comilla-svg" />
+                    <img src="./assets/img/comilla-cierre.svg" alt="Comilla cierre" class="comilla-svg" />
                 </div>
                 <!-- Animación Lottie Music Btn -->
                 <canvas class="music-btn" id="animacion-lottie" width="100" height="100"></canvas>
                 <!-- Icono estático -->
-                <img class="music-btn music-btn-img" id="icono-estatico" src="assets/img/icono-musica.svg">
+                <img class="music-btn music-btn-img" id="icono-estatico" src="./assets/img/icono-musica.svg">
                 <!-- Audio -->
-                <audio id="musica-fondo" src="assets/music/musica.mp3" loop preload="auto"></audio>
+                <audio id="musica-fondo" src="./assets/music/musica.mp3" loop preload="auto"></audio>
             </div>
         </div>
     </section>
@@ -110,10 +137,10 @@
     <!-- Sección 3 - itinerario -->
     <section class="section-itinerario">
         <!-- Decoraciones -->
-        <img src="assets/img/decor-izq-1.png" alt="Decoración" class="decor decor-izq decor-izq-1" />
-        <img src="assets/img/decor-izq-2.png" alt="Decoración" class="decor decor-izq decor-izq-2" />
-        <img src="assets/img/decor-der-1A.png" alt="Decoración" class="decor decor-der decor-der-1" />
-        <img src="assets/img/decor-der-2A.png" alt="Decoración" class="decor decor-der decor-der-2" />
+        <img src="./assets/img/decor-izq-1.png" alt="Decoración" class="decor decor-izq decor-izq-1" />
+        <img src="./assets/img/decor-izq-2.png" alt="Decoración" class="decor decor-izq decor-izq-2" />
+        <img src="./assets/img/decor-der-1A.png" alt="Decoración" class="decor decor-der decor-der-1" />
+        <img src="./assets/img/decor-der-2A.png" alt="Decoración" class="decor decor-der decor-der-2" />
         <div class="itinerario-container">
             <h2 class="titulo-seccion">Itinerario</h2>
             <h3 class="subtitulo-seccion">Acompañanos a celebrar nuestra unión en este día tan especial</h3>
@@ -213,6 +240,7 @@
     <script type="module" src="js/music-control.js"></script>
     <!-- Corazon -->
     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
+    <script src="js/entrada.js"></script>
     <script src="js/animations-decor.js?v=19"></script>
     <script src="js/ajuste-vh.js"></script>
     <script src="js/contador.js"></script>
