@@ -40,6 +40,7 @@ body {
     align-items: center;
     z-index: 9999;
     transition: opacity 0.8s ease;
+    padding: 30px;
 }
 
 .entrada-contenido {
@@ -66,7 +67,7 @@ body {
 }
 
 .sombra-inferior {
-    bottom: 149px;
+    bottom: 197px;
 }
 
 /* Faja rectangular */
@@ -84,16 +85,6 @@ body {
     padding: 0;
 }
 
-.entrada-subtitulo {
-    font-size: 1.3rem;
-    font-weight: 300;
-    /* letter-spacing: 2px; */
-    font-family: var(--font-texto);
-    color: #35615b;
-    margin-bottom: 0px;
-    margin-top: 20px;
-}
-
 .nombres-entrada-container {
     display: flex;
     flex-direction: row;
@@ -108,7 +99,7 @@ body {
     font-size: 8rem;
     font-weight: 400;
     color: #4a6360;
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 
 .entrada-nombres-amp {
@@ -124,14 +115,35 @@ body {
     filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.7));
 }
 
+.texto-entrada {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.entrada-subtitulo {
+    font-size: 1.3rem;
+    font-weight: 300;
+    /* letter-spacing: 2px; */
+    font-family: var(--font-texto);
+    color: #35615b;
+    /* margin-bottom: 0px; */
+}
+
+.entrada-subtitulo:first-child {
+    font-weight: 600;
+}
+
 .btn-ingresar {
     color: #35615b;
-    border: 1px solid #35615b;
+    border: 2px solid #35615b;
     font-size: 1.2rem;
+    /* font-weight: 600; */
     padding: 10px 25px;
     border-radius: 25px;
     cursor: pointer;
-    margin-top: 40px;
+    /* margin-top: 20px; */
     transition: background 0.3s ease;
     z-index: 5;
 }
@@ -147,12 +159,18 @@ body {
 }
 
 @media screen and (max-width: 640px) {
+    .sombra {
+        width: 280px;
+        /* border: 2px solid red; */
+        left: 42px;
+    }
+
     .sombra-superior {
-        top: 42px;
+        top: 44px;
     }
 
     .sombra-inferior {
-        bottom: 147px;
+        bottom: 168px;
     }
     .faja-texto {
         width: 300px;
@@ -162,7 +180,7 @@ body {
     }
     .entrada-subtitulo {
         font-size: 1rem;
-        margin-bottom: 10px;
+        /* margin-bottom: 10px; */
     }
 
     .nombres-entrada-container {
@@ -171,12 +189,9 @@ body {
     .entrada-nombres {
         font-size: 5rem;
         font-weight: 400;
-        margin-bottom: 20px;
+        /* margin-bottom: 20px; */
     }
     .entrada-nombres-amp {
         font-size: 3rem;
-    }
-    .btn-ingresar {
-        margin-top: 60px;
     }
 }
