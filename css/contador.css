@@ -68,6 +68,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 35px;
 }
 
 .circulo-contador-shadow {
@@ -95,7 +96,7 @@
 
 .contador-palabra {
     color: var(--color-7);
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 300;
     font-family: var(--font-texto);
     margin-bottom: 30px;
@@ -106,6 +107,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    /* border: 2px solid red; */
 }
 
 .casillero-contador {
@@ -188,6 +190,7 @@
     .circulo-contador {
         height: 240px;
         width: 240px;
+        padding-top: 25px;
     }
     .circulo-contador-decor {
         height: 320px;
@@ -232,6 +235,7 @@
     .circulo-contenedor {
         height: 230px;
         width: 230px;
+        padding-top: 15px;
     }
     .circulo-contador {
         height: 220px;

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_1" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1305.57 404.09">
+  <!-- Generator: Adobe Illustrator 29.7.1, SVG Export Plug-In . SVG Version: 2.1.1 Build 8)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #fff;
+      }
+
+      .st1, .st2 {
+        fill: none;
+      }
+
+      .st2 {
+        stroke: url(#Degradado_sin_nombre_243);
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+
+      .st3 {
+        display: none;
+      }
+    </style>
+    <linearGradient id="Degradado_sin_nombre_243" data-name="Degradado sin nombre 243" x1="-1" y1="345.82" x2="1306.58" y2="345.82" gradientUnits="userSpaceOnUse">
+      <stop offset=".07" stop-color="#bf914f"/>
+      <stop offset=".5" stop-color="#ffcc84"/>
+      <stop offset=".61" stop-color="#f5c37c"/>
+      <stop offset=".79" stop-color="#dcac67"/>
+      <stop offset=".95" stop-color="#bf914f"/>
+    </linearGradient>
+  </defs>
+  <rect class="st1" y="142" width="1305.57" height="262.09"/>
+  <path class="st2" d="M0,313.37c186.56-115.13,292.54-139.7,378.41-144.73,85.86-5.03,151.61,9.48,284.58,52.53,132.97,43.06,333.15,114.66,642.59-34.16v336.95H0v-210.59h0Z"/>
+  <g id="Circulo" class="st3">
+    <circle class="st0" cx="960" cy="109.96" r="250"/>
+  </g>
+</svg>
