@@ -101,8 +101,8 @@
 }
 
 .fecha {
-    font-size: var(--tam-h2);
-    font-weight: 300;
+    font-size: 2rem;
+    font-weight: 500;
     letter-spacing: 2px;
     font-family: var(--font-texto);
     /* padding: 0 20px; */
@@ -202,7 +202,8 @@
         height: 50%;
     }
     .fecha {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
     }
     .nombres {
         flex-direction: column;
@@ -254,9 +255,6 @@
     }
     .fecha-linea-container {
         margin-bottom: 10px;
-    }
-    .fecha {
-        font-size: 1rem;
     }
     .nombres {
         font-size: 5rem;
