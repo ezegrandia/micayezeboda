@@ -5,14 +5,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     btnIngresar.addEventListener("click", () => {
         // Reproducir música
-        audio
-            .play()
-            .then(() => {
-                console.log("Música iniciada");
-            })
-            .catch((err) => {
-                console.warn("Error al reproducir música:", err);
-            });
+        audio.play().catch((err) => {
+            console.warn("Error al reproducir música:", err);
+        });
+
+        // Habilitar scroll
+        document.body.classList.remove("bloqueo-scroll");
 
         // Ocultar pantalla con animación
         pantallaEntrada.classList.add("oculta");
