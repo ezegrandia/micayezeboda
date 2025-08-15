@@ -1,31 +1,38 @@
-window.addEventListener("DOMContentLoaded", () => {
-    const decorSup1 = document.querySelector(".decor-sup-1");
-    const decorSup2 = document.querySelector(".decor-sup-2");
-    const decorInf1 = document.querySelector(".decor-inf-1");
-    const decorInf2 = document.querySelector(".decor-inf-2");
-    const decorDer1 = document.querySelector(".decor-der-1");
-    const decorDer2 = document.querySelector(".decor-der-2");
-    const decorIzq1 = document.querySelector(".decor-izq");
-    const decorIzq2 = document.querySelector(".decor-izq-2");
-
+document.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
+                    // Reiniciar animación cada vez que entra
+                    entry.target.classList.remove("animate");
+                    // Forzar reflow para reiniciar animación
+                    void entry.target.offsetWidth;
                     entry.target.classList.add("animate");
                 } else {
+                    // Al salir, quitar clase para que pueda volver a animar
                     entry.target.classList.remove("animate");
                 }
             });
         },
-        { threshold: 0.1 }
+        {
+            threshold: 0.1,
+        }
     );
 
-    [decorSup1, decorSup2, decorInf1, decorInf2, decorDer1, decorDer2, decorIzq1, decorIzq2].forEach((decor) => {
-        if (decor) {
-            // Agregar animate al cargar para que estén visibles inicialmente
-            decor.classList.add("animate");
-            observer.observe(decor);
-        }
-    });
+    function iniciarObservers() {
+        // Observa todos los decor excepto los del MAIN (que se animan en entrada.js)
+        const todos = document.querySelectorAll(".decor");
+        const decorNoMain = Array.from(todos).filter((el) => !el.closest(".section-main"));
+
+        decorNoMain.forEach((el) => observer.observe(el));
+    }
+
+    // Inicia observers cuando termina la pantalla de entrada
+    document.addEventListener("entradaFinalizada", iniciarObservers);
+
+    // Fallback: si no hay pantalla de entrada o ya está oculta
+    const pantallaEntrada = document.getElementById("pantalla-entrada");
+    if (!pantallaEntrada || pantallaEntrada.classList.contains("oculta")) {
+        iniciarObservers();
+    }
 });

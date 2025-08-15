@@ -3,39 +3,58 @@ document.addEventListener("DOMContentLoaded", () => {
     const pantallaEntrada = document.getElementById("pantalla-entrada");
     const audio = document.getElementById("musica-fondo");
 
-    function reiniciarDecoradores() {
-        document.querySelectorAll(".decor").forEach((decor) => {
+    // Animar SOLO los decor del MAIN al cerrar la pantalla de entrada
+    function animarDecorMain() {
+        const decorMain = document.querySelectorAll(".section-main .decor");
+        decorMain.forEach((decor) => {
             decor.classList.remove("animate");
-            void decor.offsetWidth; // fuerza reflow
+            // forzar reflow para reiniciar la animación
+            // eslint-disable-next-line no-unused-expressions
+            decor.offsetWidth;
             decor.classList.add("animate");
         });
     }
 
-    btnIngresar.addEventListener("click", () => {
-        // Reproducir música
-        audio.play().catch((err) => {
-            console.warn("Error al reproducir música:", err);
-        });
+    // Cerrar pantalla de entrada
+    function cerrarPantallaEntrada() {
+        if (!pantallaEntrada) return;
+
+        // Reproducir música (si el navegador lo permite por la interacción)
+        if (audio) {
+            audio.play().catch((err) => {
+                console.warn("Error al reproducir música:", err);
+            });
+        }
 
         // Habilitar scroll
         document.body.classList.remove("bloqueo-scroll");
 
-        // Ocultar pantalla con animación
+        // Ocultar pantalla con animación (usa tu clase existente)
         pantallaEntrada.classList.add("oculta");
 
-        // Iniciar animaciones de decoradores antes de que termine la transición
+        // Arrancá animaciones del MAIN casi al instante
         setTimeout(() => {
-            reiniciarDecoradores();
-        }, 100); // empieza casi al instante, ajusta a gusto
+            animarDecorMain();
+        }, 100);
 
-        // Terminar de ocultar la pantalla
+        // Terminar de ocultar la pantalla y disparar evento global
         setTimeout(() => {
             pantallaEntrada.style.display = "none";
-        }, 800); // mismo tiempo que tu animación CSS de .oculta
-    });
+            // Avisar al resto que la entrada terminó → los observers pueden iniciar
+            document.dispatchEvent(new Event("entradaFinalizada"));
+        }, 800); // mismo tiempo que tu transición CSS de .oculta
+    }
 
-    // Si la pantalla ya está oculta al cargar
+    if (btnIngresar) {
+        btnIngresar.addEventListener("click", cerrarPantallaEntrada);
+    }
+
+    // Caso: si la pantalla ya está oculta al cargar (reloads, debug, etc.)
     if (!pantallaEntrada || pantallaEntrada.classList.contains("oculta")) {
-        reiniciarDecoradores();
+        // Asegurá animación del MAIN y que los observers puedan iniciar
+        setTimeout(() => {
+            animarDecorMain();
+            document.dispatchEvent(new Event("entradaFinalizada"));
+        }, 0);
     }
 });
