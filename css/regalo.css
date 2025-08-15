@@ -1,0 +1,20 @@
+.regalo-section {
+    height: 1000px;
+    background-color: #f9f6f2;
+    position: relative;
+    /* top: -5px; */
+}
+
+.contenedor-ondas-4 {
+    top: -250px;
+}
+
+.onda-9 {
+    background-image: url("../assets/img/onda-9.svg");
+}
+
+@media screen and (max-width: 480px) {
+    .contenedor-ondas-4 {
+        top: -200px;
+    }
+}

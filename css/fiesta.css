@@ -3,7 +3,7 @@
     position: relative;
     top: -10px;
     padding-top: 0;
-    /* padding-bottom: 50px; */
+    padding-bottom: 200px;
 }
 
 .contenedor-ondas-3 {
@@ -48,6 +48,7 @@
     justify-content: space-between;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
     border: 1px solid #81948b;
+    z-index: 2;
 }
 
 .fiesta-card__title {
@@ -85,6 +86,24 @@
     color: #fff;
 }
 
+.decor-fiesta {
+    height: 300px;
+    width: 180px;
+    position: absolute;
+    z-index: 1;
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.4));
+}
+
+.decor-fiesta-izq {
+    top: 280px;
+    left: 7%;
+}
+
+.decor-fiesta-der {
+    top: 380px;
+    right: 7%;
+}
+
 /* ======================== */
 /* RESPONSIVO */
 /* ======================== */
@@ -96,7 +115,33 @@
     }
 } */
 
+@media screen and (max-width: 1300px) {
+    .decor-fiesta-izq {
+        /* top: 280px; */
+        left: 0;
+    }
+
+    .decor-fiesta-der {
+        /* top: 380px; */
+        right: 0;
+    }
+}
+
 @media screen and (max-width: 940px) {
+    .decor-fiesta {
+        height: 200px;
+        width: 120px;
+    }
+
+    .decor-fiesta-izq {
+        /* top: 280px; */
+        left: 2%;
+    }
+
+    .decor-fiesta-der {
+        top: 350px;
+        right: 2%;
+    }
     .fiesta-card {
         /* border-radius: 20px; */
         padding: 30px;
@@ -119,6 +164,20 @@
 }
 
 @media screen and (max-width: 768px) {
+    .decor-fiesta {
+        height: 250px;
+        width: 150px;
+    }
+
+    .decor-fiesta-izq {
+        top: 200px;
+        left: 12%;
+    }
+
+    .decor-fiesta-der {
+        top: 720px;
+        right: 12%;
+    }
     .subtitulo-seccion-fiesta {
         margin-bottom: 80px;
     }
@@ -133,7 +192,32 @@
     }
 }
 
+@media screen and (max-width: 660px) {
+    .decor-fiesta-izq {
+        top: 230px;
+        left: 5%;
+    }
+
+    .decor-fiesta-der {
+        right: 5%;
+    }
+}
+
 @media screen and (max-width: 480px) {
+    .decor-fiesta {
+        height: 200px;
+        width: 120px;
+    }
+    .decor-fiesta-izq {
+        left: 0;
+    }
+
+    .decor-fiesta-der {
+        right: 0;
+    }
+    .fiesta-section {
+        padding-bottom: 150px;
+    }
     .fiesta-container {
         position: relative;
         top: -50px;
