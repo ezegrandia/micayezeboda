@@ -12,7 +12,7 @@
 
 .titulo-seccion {
     font-family: var(--font-titulo);
-    font-size: 5rem;
+    font-size: 6rem;
     color: var(--color-1);
     font-weight: 400;
     text-align: center;
@@ -23,7 +23,7 @@
 
 .subtitulo-seccion {
     font-family: var(--font-texto);
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     color: var(--color-1);
     font-weight: 400;
     text-align: center;

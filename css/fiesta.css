@@ -1,0 +1,147 @@
+.fiesta-section {
+    background-color: #fcf4e6;
+    position: relative;
+    top: -10px;
+    padding-top: 0;
+    /* padding-bottom: 50px; */
+}
+
+.contenedor-ondas-3 {
+    position: relative;
+    width: 100%;
+    bottom: 50px;
+}
+
+.onda-7 {
+    background-image: url("../assets/img/onda-7.svg");
+}
+
+.fiesta-container {
+    position: relative;
+    top: -100px;
+}
+
+.titulo-seccion-fiesta {
+    margin-top: 0px;
+}
+
+.subtitulo-seccion-fiesta {
+    margin-bottom: 100px;
+}
+
+.fiesta-card-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.fiesta-card {
+    border-radius: 20px;
+    padding: 50px;
+    width: 400px;
+    height: 500px;
+    background-color: #f9f6f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    border: 1px solid #81948b;
+}
+
+.fiesta-card__title {
+    color: #bfa880;
+    font-family: var(--font-texto);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.fiesta-card__icon {
+    width: 170px;
+    height: 170px;
+    /* margin-bottom: 20px; */
+}
+
+.fiesta-card__texto {
+    font-family: var(--font-texto);
+    font-size: 1.2rem;
+    color: var(--color-2);
+    /* margin-bottom: 100px; */
+}
+
+.fiesta-card__btn {
+    border: 2px solid #4a6360;
+    color: #4a6360;
+    background-color: #fff;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-weight: 600;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+.fiesta-card__btn:hover {
+    background-color: #4a6360;
+    color: #fff;
+}
+
+/* ======================== */
+/* RESPONSIVO */
+/* ======================== */
+/* @media screen and (max-width: 940px) {
+    .fiesta-card-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+} */
+
+@media screen and (max-width: 940px) {
+    .fiesta-card {
+        /* border-radius: 20px; */
+        padding: 30px;
+        width: 280px;
+        height: 360px;
+    }
+    .fiesta-card__title {
+        font-size: 1.6rem;
+    }
+    .fiesta-card__icon {
+        width: 120px;
+        height: 120px;
+    }
+    .fiesta-card__texto {
+        font-size: 1rem;
+    }
+    .fiesta-card__btn {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .subtitulo-seccion-fiesta {
+        margin-bottom: 80px;
+    }
+    .fiesta-card-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 80px;
+    }
+    .fiesta-card__title {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .fiesta-container {
+        position: relative;
+        top: -50px;
+    }
+    .fiesta-card {
+        /* border-radius: 20px; */
+        padding: 30px;
+        width: 250px;
+        height: 360px;
+    }
+}
