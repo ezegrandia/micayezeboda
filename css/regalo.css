@@ -2,7 +2,22 @@
     height: 1000px;
     background-color: #f9f6f2;
     position: relative;
-    /* top: -5px; */
+    top: -5px;
+    padding-top: 50px;
+}
+
+.titulo-container {
+    padding: 0 300px;
+    position: relative;
+    z-index: 20;
+}
+
+.titulo-seccion-regalo {
+    margin-bottom: 30px;
+}
+
+.subtitulo-seccion {
+    line-height: 30px;
 }
 
 .contenedor-ondas-4 {
@@ -13,7 +28,30 @@
     background-image: url("../assets/img/onda-9.svg");
 }
 
+/* ======================== */
+/* RESPONSIVO */
+/* ======================== */
+@media screen and (max-width: 1300px) {
+    .titulo-container {
+        padding: 0 100px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .regalo-section {
+        padding-top: 50px;
+    }
+    .titulo-container {
+        padding: 0 30px;
+    }
+}
+
 @media screen and (max-width: 480px) {
+    .regalo-section {
+        padding-top: 0;
+        top: -30px;
+        /* border: 2px solid red; */
+    }
     .contenedor-ondas-4 {
         top: -200px;
     }
