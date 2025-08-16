@@ -119,13 +119,13 @@
 
 @media screen and (max-width: 480px) {
     .decor-izq-regalo {
-        top: 640px;
+        top: 650px;
         height: 180px;
         left: -60px;
     }
 
     .decor-der-regalo {
-        top: 640px;
+        top: 650px;
         height: 180px;
         right: -60px;
     }
@@ -133,7 +133,7 @@
         padding-top: 0;
         top: -30px;
         /* border: 2px solid red; */
-        padding-bottom: 250px;
+        padding-bottom: 300px;
     }
     .contenedor-ondas-4 {
         top: -200px;
@@ -148,12 +148,12 @@
     }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 376px) {
     .decor-izq-regalo {
-        top: 680px;
+        top: 700px;
     }
 
     .decor-der-regalo {
-        top: 680px;
+        top: 700px;
     }
 }
