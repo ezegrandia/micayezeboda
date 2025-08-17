@@ -6,6 +6,16 @@ const modalContent = document.getElementById("modal-content");
 const modalIcon = document.getElementById("modal-icon-img");
 let currentModalOpen = null;
 
+// 🔹 URL de tu Apps Script (reemplazá por la tuya)
+const SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbzlzOvlsP_XtA1oMQsntL5k20Dvp6MloOCn8FD11uAnc8HvjPgGD8HNrGChuYNMt3UV/exec";
+
+// Utilidad: mostrar/ocultar loader global del form
+function toggleFormLoader(show) {
+    const loader = document.getElementById("form-loader");
+    if (loader) loader.style.display = show ? "flex" : "none";
+}
+
 // Configuración de los modales
 const modalData = {
     dresscode: {
@@ -258,16 +268,45 @@ document.addEventListener("submit", function (e) {
 
         console.log("Canción sugerida:", data);
 
-        // Mostrar mensaje de confirmación
-        modalContent.innerHTML = `
-            <h2 class="modal-title">¡Gracias por tu sugerencia!</h2>
-            <div class="modal-block">
-                <p>Hemos recibido tu canción "${data.cancion}".</p>
-                <p>¡Esperamos verte en la fiesta!</p>
-            </div>
-        `;
+        // ⚠️ poné acá la URL de tu App Script desplegado como "Aplicación web"
+        const scriptURL =
+            "https://script.google.com/macros/s/AKfycbzlzOvlsP_XtA1oMQsntL5k20Dvp6MloOCn8FD11uAnc8HvjPgGD8HNrGChuYNMt3UV/exec";
 
-        // Cerrar automáticamente después de 3 segundos
-        setTimeout(closeModal, 6000);
+        fetch(scriptURL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
+            .then((res) => res.json())
+            .then((res) => {
+                console.log("Respuesta del servidor:", res); // 👈 te muestra el error exacto
+                if (res.success) {
+                    // Mostrar mensaje de confirmación
+                    modalContent.innerHTML = `
+                    <h2 class="modal-title">¡Gracias por tu sugerencia!</h2>
+                    <div class="modal-block">
+                        <p>Hemos recibido tu canción "${data.cancion}".</p>
+                        <p>¡Esperamos verte en la fiesta!</p>
+                    </div>
+                `;
+
+                    // Cerrar automáticamente después de 6 segundos
+                    setTimeout(closeModal, 6000);
+                } else {
+                    throw new Error(res.error || "Error desconocido en el servidor");
+                }
+            })
+            .catch((err) => {
+                console.error("Error al enviar:", err);
+                modalContent.innerHTML = `
+                <h2 class="modal-title">Hubo un error</h2>
+                <div class="modal-block">
+                    <p>No pudimos enviar tu sugerencia. Por favor, intentá de nuevo.</p>
+                </div>
+            `;
+                setTimeout(closeModal, 6000);
+            });
     }
 });

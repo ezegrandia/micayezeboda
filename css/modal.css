@@ -304,6 +304,20 @@
     }
 }
 
+/* 🔹 Estilos para el icono de música en mensaje de éxito 🔹 */
+.icono-musica {
+    width: 80px;
+    height: 80px;
+    margin: 20px auto 0;
+    display: block;
+}
+
+/* 🔹 Ajustes para el loader 🔹 */
+.form-loader-icon {
+    width: 100px !important;
+    height: auto !important;
+}
+
 /* Responsive */
 @media screen and (max-width: 768px) {
     .custom-modal {
