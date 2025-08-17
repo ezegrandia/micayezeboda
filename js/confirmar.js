@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // URL de tu Apps Script (REEMPLAZAR CON TU URL AL HACER EL DEPLOY)
     const scriptURL =
-        "https://script.google.com/macros/s/AKfycbwKpG3T6qtS_oF8jN5O6PwE8fhMK2an3gEk2y0LrQSx1DRQ8RSqG-b69oapOHtozZo6/exec";
+        "https://script.google.com/macros/s/AKfycbwXmbU8y5dKhmaNbc8HNnRcUYovVZSjCTvmqBax4r-EuMOnqyA025jFlXozwqsT34A/exec";
 
     // Generar formularios según cantidad de personas seleccionada
     function generarFormulariosPersonas(cantidad) {
