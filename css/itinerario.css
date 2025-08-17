@@ -130,7 +130,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    /* 🔑 Para que el <a> se comporte como botón */
+    display: inline-flex;
+    text-decoration: none;
 }
+
 .itinerario-item-btn:hover {
     background-color: var(--color-1);
     color: #fff;

@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Asegurarse de que la página empiece en el tope
+    window.scrollTo(0, 0);
+
     const btnIngresar = document.getElementById("btn-ingresar");
     const pantallaEntrada = document.getElementById("pantalla-entrada");
     const audio = document.getElementById("musica-fondo");
@@ -19,6 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
     function cerrarPantallaEntrada() {
         if (!pantallaEntrada) return;
 
+        // Asegurarse de volver al tope antes de cerrar
+        window.scrollTo(0, 0);
+
         // Reproducir música (si el navegador lo permite por la interacción)
         if (audio) {
             audio.play().catch((err) => {
@@ -33,16 +39,16 @@ document.addEventListener("DOMContentLoaded", () => {
         pantallaEntrada.classList.add("oculta");
 
         // Arrancá animaciones del MAIN casi al instante
-        setTimeout(() => {
-            animarDecorMain();
-        }, 100);
+        // setTimeout(() => {
+        //     animarDecorMain();
+        // }, 400);
 
         // Terminar de ocultar la pantalla y disparar evento global
         setTimeout(() => {
             pantallaEntrada.style.display = "none";
             // Avisar al resto que la entrada terminó → los observers pueden iniciar
             document.dispatchEvent(new Event("entradaFinalizada"));
-        }, 800); // mismo tiempo que tu transición CSS de .oculta
+        }, 400); // mismo tiempo que tu transición CSS de .oculta
     }
 
     if (btnIngresar) {

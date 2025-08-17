@@ -11,12 +11,13 @@
     <link rel="stylesheet" href="css/main.css?v=19">
     <link rel="stylesheet" href="css/animations-decor.css?v=19">
     <link rel="stylesheet" href="css/contador.css?v=19">
-    <link rel="stylesheet" href="css/itinerario.css?v=19">
+    <link rel="stylesheet" href="css/itinerario.css?v=20">
     <link rel="stylesheet" href="css/modal-iglesiaysalon.css">
     <link rel="stylesheet" href="css/separador2.css">
     <link rel="stylesheet" href="css/galeria.css">
     <link rel="stylesheet" href="css/fiesta.css">
     <link rel="stylesheet" href="css/regalo.css">
+    <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/footer.css">
     <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Open+Sans:wght@300;400;700&display=swap"
         rel="stylesheet" />
@@ -261,14 +262,16 @@
                     <p class="fiesta-card__texto">Una orientación para
                         tu vestuario
                     </p>
-                    <button class="fiesta-card__btn section-btn">VER MÁS</button>
+                    <!-- <button class="fiesta-card__btn section-btn">VER MÁS</button> -->
+                    <button class="fiesta-card__btn section-btn open-modal" data-modal="dresscode">VER MÁS</button>
                 </div>
                 <div class="fiesta-card">
                     <p class="fiesta-card__title">Música</p>
                     <img class="fiesta-card__icon" src="./assets/img/song-icon.svg">
                     <p class="fiesta-card__texto">¿Cuál canción no puede faltar en la fiesta?
                     </p>
-                    <button class="fiesta-card__btn section-btn">RECOMENDAR</button>
+                    <!-- <button class="fiesta-card__btn section-btn">RECOMENDAR</button> -->
+                    <button class="fiesta-card__btn section-btn open-modal" data-modal="cancion">RECOMENDAR</button>
                 </div>
             </div>
         </div>
@@ -297,12 +300,28 @@
         <dotlottie-wc class="icono-regalo"
             src="https://lottie.host/40d2f8ad-259a-404c-8b03-5b007675a93b/AoEWpym0qj.lottie" speed="1" autoplay loop>
         </dotlottie-wc>
-        <button class="regalo-btn section-btn">VER MÁS</button>
+        <!-- <button class="regalo-btn section-btn">VER MÁS</button> -->
+        <button class="regalo-btn section-btn open-modal" data-modal="regalo">VER MÁS</button>
     </section>
     <footer class="footer">
         <small class="small">M&E - 07.12.2025</small>
     </footer>
+    <!-- 🔹 NUEVOS MODALES -->
+    <div class="custom-modal-overlay" id="modal-overlay"></div>
 
+    <div class="custom-modal" id="custom-modal">
+        <!-- Círculo superior con ícono -->
+        <div class="modal-icon">
+            <img id="modal-icon-img" src="./assets/img/bow-icon.svg" alt="icon">
+        </div>
+
+        <!-- Botón cerrar -->
+        <button class="modal-close" id="modal-close">✕</button>
+
+        <!-- Contenido -->
+        <div id="modal-content">Texto del modal aquí...</div>
+    </div>
+    <!-- 🔹 FIN NUEVOS MODALES -->
 
     <!-- Scripts -->
     <!-- Music Btn -->
@@ -316,6 +335,7 @@
     <script src="js/contador.js"></script>
     <script src="js/modal-iglesiaysalon.js"></script>
     <script src="js/carrusel.js"></script>
+    <script src="js/modal.js"></script>
 </body>
 
 </html>
