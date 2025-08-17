@@ -316,6 +316,32 @@
                 Antes del 20 de Noviembre
             </h3>
         </div>
+
+        <!-- Formulario de confirmación -->
+        <div class="confirmacion-container">
+            <form id="confirmar-form" class="form-confirmacion" autocomplete="off">
+                <!-- Selección de cantidad de personas -->
+                <div class="form-group">
+                    <label for="cantidad-personas">¿Por cuántas personas confirmas?</label>
+                    <select id="cantidad-personas" name="cantidad-personas" required>
+                        <option value="" disabled selected>¿Por cuántas personas confirmas?</option>
+                        <option value="1">1 persona</option>
+                        <option value="2">2 personas</option>
+                        <option value="3">3 personas</option>
+                        <option value="4">4 personas</option>
+                        <option value="5">5 personas</option>
+                        <option value="6">6 personas</option>
+                        <option value="0">No podré asistir</option>
+                    </select>
+                </div>
+
+                <!-- Contenedor dinámico para los formularios de personas -->
+                <div id="personas-container" class="personas-container"></div>
+
+                <!-- Botón de envío -->
+                <button type="submit" class="form-btn">Confirmar</button>
+            </form>
+        </div>
     </section>
     <footer class="footer">
         <small class="small">M&E - 07.12.2025</small>
@@ -350,6 +376,7 @@
     <script src="js/modal-iglesiaysalon.js"></script>
     <script src="js/carrusel.js"></script>
     <script src="js/modal.js"></script>
+    <script src="js/confirmar.js"></script>
 </body>
 
 </html>

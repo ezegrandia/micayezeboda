@@ -1,16 +1,23 @@
+/* ======================== */
+/* ESTILOS GENERALES */
+/* ======================== */
+
 .confirmar-section {
     background-color: #fcf4e6;
     position: relative;
     top: -5px;
     padding-top: 100px;
+    padding-bottom: 150px;
     width: 100%;
-    height: 1000px;
-    /* padding-bottom: 150px; */
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: visible;
 }
+
+/* ======================== */
+/* ESTILOS DE ONDAS */
+/* ======================== */
 
 .contenedor-ondas-5 {
     top: -270px;
@@ -19,15 +26,239 @@
 .onda-11 {
     background-image: url("../assets/img/onda-11.svg");
 }
+
 .onda-12 {
     background-image: url("../assets/img/onda-12.svg");
 }
+
 .onda-13 {
     background-image: url("../assets/img/onda-13.svg");
 }
 
 /* ======================== */
-/* RESPONSIVO */
+/* FORMULARIO PRINCIPAL */
+/* ======================== */
+
+.confirmacion-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.form-confirmacion {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    margin: 20px auto 0;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    color: #4a6360;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group select,
+.form-group input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.3s;
+    color: #4a6360;
+    background-color: #fff;
+    width: 100%;
+    box-sizing: border-box;
+    /* border: 2px solid red; */
+}
+
+.form-group select:focus,
+.form-group input:focus {
+    border-color: #bfa880;
+    background-color: #fff;
+    box-shadow: 0 0 3px rgba(191, 168, 128, 0.5);
+    outline: none;
+}
+
+.form-group select::placeholder,
+.form-group input::placeholder {
+    color: #0000004b;
+}
+
+/* ======================== */
+/* FORMULARIOS DE PERSONAS */
+/* ======================== */
+
+.personas-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+}
+
+.persona-form {
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0px 1px rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    /* flex-grow: 1; */
+}
+
+.persona-titulo {
+    color: #bfa880;
+    font-size: 1.2rem;
+    margin: 0 0 15px 0;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ======================== */
+/* CASO NO ASISTENCIA */
+/* ======================== */
+
+.no-asistencia-container {
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.no-asistencia-texto {
+    color: #4a6360;
+    margin-bottom: 20px;
+}
+
+/* ======================== */
+/* BOTONES */
+/* ======================== */
+
+.form-btn {
+    background-color: #bfa880;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 30px;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.form-btn:hover {
+    background-color: #a38a60;
+}
+
+/* ======================== */
+/* MODAL DE CONFIRMACIÓN */
+/* ======================== */
+
+.confirmacion-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(22, 57, 52, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.confirmacion-modal {
+    background: #fdfdfd;
+    border-radius: 30px;
+    padding: 40px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.confirmacion-modal h2 {
+    color: #bfa880;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.confirmacion-modal p {
+    color: #4a6360;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.confirmacion-cerrar-btn {
+    background-color: #bfa880;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.confirmacion-cerrar-btn:hover {
+    background-color: #a38a60;
+}
+
+/* Estilos específicos para el mensaje de no asistencia */
+.confirmacion-modal .mensaje-no-asistencia {
+    color: #4a6360;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.confirmacion-modal .icono-tristeza {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    display: block;
+}
+
+/* Estilo alternativo para modal de no asistencia */
+.confirmacion-modal.no-asistencia {
+    background-color: #f9f5f0;
+}
+
+.confirmacion-modal.no-asistencia h2 {
+    color: #8a6d3b;
+}
+
+/* ======================== */
+/* MEDIA QUERIES */
 /* ======================== */
 
 @media screen and (max-width: 1024px) {
@@ -40,13 +271,61 @@
     .contenedor-ondas-5 {
         top: -220px;
     }
+
+    .confirmacion-container {
+        padding: 0 15px;
+    }
+
+    .form-confirmacion {
+        gap: 20px;
+    }
+
+    .confirmacion-modal {
+        padding: 30px 20px;
+    }
+
+    .confirmacion-modal h2 {
+        font-size: 1.5rem;
+    }
 }
 
 @media screen and (max-width: 480px) {
     .confirmar-section {
         padding-top: 50px;
     }
+
     .contenedor-ondas-5 {
         top: -180px;
+    }
+
+    .persona-form {
+        padding: 15px;
+    }
+
+    .persona-titulo {
+        font-size: 1.1rem;
+    }
+
+    .form-group select,
+    .form-group input {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .confirmacion-modal {
+        padding: 25px 15px;
+    }
+
+    .confirmacion-modal h2 {
+        font-size: 1.3rem;
+    }
+
+    .confirmacion-modal p {
+        font-size: 0.95rem;
+    }
+
+    .confirmacion-cerrar-btn {
+        padding: 8px 16px;
+        font-size: 14px;
     }
 }

@@ -268,6 +268,6 @@ document.addEventListener("submit", function (e) {
         `;
 
         // Cerrar automáticamente después de 3 segundos
-        setTimeout(closeModal, 4000);
+        setTimeout(closeModal, 6000);
     }
 });
