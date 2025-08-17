@@ -4,6 +4,7 @@ const modal = document.getElementById("custom-modal");
 const closeBtn = document.getElementById("modal-close");
 const modalContent = document.getElementById("modal-content");
 const modalIcon = document.getElementById("modal-icon-img");
+let currentModalOpen = null;
 
 // Configuración de los modales
 const modalData = {
@@ -23,18 +24,18 @@ const modalData = {
         title: "Sugerir Canción",
         text: "",
         form: `
-            <form class="form-cancion">
+            <form class="form-cancion" autocomplete="off">
                 <div class="form-group">
                     <label>Tu Nombre</label>
-                    <input type="text" name="nombre" required placeholder="Tu Nombre">
+                    <input type="text" name="nombre" required placeholder="Tu Nombre" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <label>Nombre de la canción y autor</label>
-                    <input type="text" name="cancion" required placeholder="Nombre de la canción y autor">
+                    <input type="text" name="cancion" required placeholder="Nombre de la canción y autor" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <label>Link (YouTube o Spotify - opcional)</label>
-                    <input type="url" name="link" placeholder="Link YouTube (opcional)">
+                    <input type="url" name="link" placeholder="Link YouTube (opcional)" autocomplete="off">
                 </div>
                 <button type="submit" class="form-btn">Enviar Sugerencia</button>
             </form>
@@ -68,6 +69,26 @@ const modalData = {
         iconSize: "35px",
     },
 };
+
+//Ocultar placeholders de los inputs del formulario al hacer focus
+function setupFormPlaceholders() {
+    const inputs = document.querySelectorAll(".form-cancion input");
+
+    inputs.forEach((input) => {
+        // Guardar el placeholder original
+        const originalPlaceholder = input.placeholder;
+
+        input.addEventListener("focus", () => {
+            input.placeholder = "";
+        });
+
+        input.addEventListener("blur", () => {
+            if (input.value === "") {
+                input.placeholder = originalPlaceholder;
+            }
+        });
+    });
+}
 
 // Función para copiar texto al portapapeles
 function setupCopyButtons() {
@@ -113,6 +134,15 @@ function setupCopyButtons() {
     });
 }
 
+// Función para manejar el botón atrás
+function handleBackButton() {
+    if (currentModalOpen) {
+        closeModal();
+        return true; // Indicar que manejamos el evento
+    }
+    return false;
+}
+
 // Función para abrir modales
 document.querySelectorAll(".open-modal").forEach((btn) => {
     btn.addEventListener("click", (e) => {
@@ -124,6 +154,11 @@ document.querySelectorAll(".open-modal").forEach((btn) => {
             console.error(`Modal data not found for type: ${type}`);
             return;
         }
+
+        // Registrar modal abierto
+        currentModalOpen = type;
+        // Agregar estado al historial
+        window.history.pushState({ modalOpen: true }, "");
 
         // Limpiar contenido previo
         modalContent.innerHTML = "";
@@ -174,30 +209,45 @@ document.querySelectorAll(".open-modal").forEach((btn) => {
             modalIcon.style.height = data.iconSize;
         }
 
-        // Mostrar modal y bloquear scroll (cambio aquí)
+        // Mostrar modal y bloquear scroll
         overlay.style.display = "block";
         modal.style.display = "flex";
         document.documentElement.style.overflow = "hidden";
         document.body.style.overflow = "hidden";
         document.body.classList.add("bloqueo-scroll");
 
-        // Después de mostrar el modal, configurar los botones de copiar
-        setTimeout(setupCopyButtons, 100);
+        // Después de mostrar el modal
+        setTimeout(() => {
+            setupCopyButtons();
+            if (btn.dataset.modal === "cancion") {
+                setupFormPlaceholders();
+            }
+        }, 100);
     });
 });
 
-// Función para cerrar modal (cambios aquí)
+// Función para cerrar modal
 function closeModal() {
     overlay.style.display = "none";
     modal.style.display = "none";
     document.documentElement.style.overflow = "";
     document.body.style.overflow = "";
     document.body.classList.remove("bloqueo-scroll");
+    currentModalOpen = null;
 }
 
 // Event listeners para cerrar
 closeBtn.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
+
+// Manejar historial de navegación
+window.addEventListener("popstate", function (event) {
+    if (event.state && event.state.modalOpen) {
+        handleBackButton();
+    } else if (currentModalOpen) {
+        handleBackButton();
+    }
+});
 
 // Manejar envío de formulario
 document.addEventListener("submit", function (e) {
@@ -218,6 +268,6 @@ document.addEventListener("submit", function (e) {
         `;
 
         // Cerrar automáticamente después de 3 segundos
-        setTimeout(closeModal, 3000);
+        setTimeout(closeModal, 4000);
     }
 });

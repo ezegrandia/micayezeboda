@@ -8,6 +8,7 @@
 
     let imagenes = [];
     let indiceActual = 0;
+    let modalAbierto = false;
 
     // utility: abrir/cerrar con clase (evita depender del inline style)
     function abrirModal(listaImagenes, indice = 0) {
@@ -15,11 +16,13 @@
         imagenes = listaImagenes.slice();
         indiceActual = Math.max(0, Math.min(indice, imagenes.length - 1));
         // bloquear scroll y abrir
-        document.documentElement.style.overflow = "hidden"; // bloquea <html>
-        document.body.style.overflow = "hidden"; // bloquea <body>
+        document.documentElement.style.overflow = "hidden";
+        document.body.style.overflow = "hidden";
 
         modal.classList.add("open");
         modal.setAttribute("aria-hidden", "false");
+        modalAbierto = true;
+        window.history.pushState({ galeriaModalOpen: true }, "");
         precargarImagenes();
         mostrarImagen();
     }
@@ -29,6 +32,7 @@
         modal.setAttribute("aria-hidden", "true");
         document.documentElement.style.overflow = "";
         document.body.style.overflow = "";
+        modalAbierto = false;
     }
 
     function mostrarImagen() {
@@ -76,6 +80,14 @@
         });
     }
 
+    function handleBackButton() {
+        if (modalAbierto) {
+            cerrarModal();
+            return true;
+        }
+        return false;
+    }
+
     // eventos
     flechaDer?.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -99,6 +111,15 @@
         if (e.key === "ArrowLeft") return navegarIzquierda();
     });
 
+    // Manejar historial de navegación
+    window.addEventListener("popstate", function (event) {
+        if (event.state && event.state.galeriaModalOpen) {
+            handleBackButton();
+        } else if (modalAbierto) {
+            handleBackButton();
+        }
+    });
+
     // Exponer funciones globales mínimas para abrir desde tu markup
     window.GaleriaModal = {
         abrir: abrirModal,
@@ -115,12 +136,12 @@
         el.addEventListener("click", () => abrirModal(["assets/img/salon1.jpg", "assets/img/salon2.jpg"]));
     });
 
-    // 🔹 Listeners para la galería Polaroid
+    // Listeners para la galería Polaroid
     const polaroidImgs = document.querySelectorAll(".carrusel-container .polaroid img");
     const listaPolaroids = Array.from(polaroidImgs).map((img) => img.src);
 
     polaroidImgs.forEach((img, index) => {
-        img.style.cursor = "pointer"; // para indicar que es clickeable
+        img.style.cursor = "pointer";
         img.addEventListener("click", () => {
             abrirModal(listaPolaroids, index);
         });

@@ -168,8 +168,14 @@
     text-align: center;
 }
 
+.form-group input::placeholder {
+    color: #0000004b;
+}
+
 .form-group input:focus {
-    border-color: #bfa880;
+    border-color: #aa6e07;
+    background-color: #fff;
+    box-shadow: 0 0 3px rgba(234, 158, 27, 0.5);
     outline: none;
 }
 
