@@ -17,7 +17,7 @@ function ocultarLoader() {
     document.getElementById("form-loader").style.display = "none";
 }
 
-// URL de tu Apps Script (⚠️ reemplazá con tu URL de despliegue)
+// URL de tu Apps Script
 const scriptURL =
     "https://script.google.com/macros/s/AKfycbyUqb0fATpFqbUwCkYmeqrrLbIPlBV1_GggfEd_rR-qCZ7zcNyIm5mPvFebUQg7GHDj/exec";
 
@@ -91,7 +91,7 @@ function capitalizar(texto) {
     });
 }
 
-//Ocultar placeholders de los inputs del formulario al hacer focus
+// Ocultar placeholders de los inputs del formulario al hacer focus
 function setupFormPlaceholders() {
     const inputs = document.querySelectorAll(".form-cancion input");
 
@@ -190,11 +190,16 @@ document.querySelectorAll(".open-modal").forEach((btn) => {
             modalIcon.style.height = data.iconSize;
         }
 
+        // --- Guardar posición y congelar scroll ---
+        scrollPos = window.scrollY;
+        document.body.style.position = "fixed";
+        document.body.style.top = `-${scrollPos}px`;
+        document.body.style.left = "0";
+        document.body.style.right = "0";
+        document.body.style.width = "100%";
+
         overlay.style.display = "block";
         modal.style.display = "flex";
-        document.documentElement.style.overflow = "hidden";
-        document.body.style.overflow = "hidden";
-        document.body.classList.add("bloqueo-scroll");
 
         setTimeout(() => {
             setupCopyButtons();
@@ -207,9 +212,17 @@ document.querySelectorAll(".open-modal").forEach((btn) => {
 function closeModal() {
     overlay.style.display = "none";
     modal.style.display = "none";
-    document.documentElement.style.overflow = "";
-    document.body.style.overflow = "";
-    document.body.classList.remove("bloqueo-scroll");
+
+    // --- Restaurar scroll sin “bajón” ---
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.left = "";
+    document.body.style.right = "";
+    document.body.style.width = "";
+
+    // volver exactamente al mismo punto
+    window.scrollTo({ top: scrollPos, left: 0, behavior: "instant" });
+
     currentModalOpen = null;
 }
 
@@ -258,7 +271,6 @@ document.addEventListener("submit", function (e) {
                     <p>¡Seguro será un temazo en la fiesta! 🎶</p>
                     </div>
                     `;
-                    // setTimeout(closeModal, 6000);
                 } else {
                     throw new Error(res.error || "Hubo un error desconocido");
                 }
