@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // URL de tu Apps Script (REEMPLAZAR CON TU URL AL HACER EL DEPLOY)
     const scriptURL =
-        "https://script.google.com/macros/s/AKfycbwXmbU8y5dKhmaNbc8HNnRcUYovVZSjCTvmqBax4r-EuMOnqyA025jFlXozwqsT34A/exec";
+        "https://script.google.com/macros/s/AKfycbzZ61tbInJmj1PvAUspGrgP-2LT_PzdwuP6yT4bN-FLCBj7l-Hc8x0afh3dgg-R6dU/exec";
 
     // Generar formularios según cantidad de personas seleccionada
     function generarFormulariosPersonas(cantidad) {
@@ -151,26 +151,29 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Enviar datos a Google Sheets
+    // Enviar datos a Google Sheets versión corregida
     async function enviarDatosGoogleSheets(personasData, cantidad, nombres) {
         try {
-            for (const persona of personasData) {
-                const formData = new FormData();
-                formData.append("nombre", persona.nombre);
-                formData.append("apellido", persona.apellido);
-                formData.append("dni", persona.dni);
-                formData.append("alimentacion", persona.alimentacion);
-                formData.append("comentario", persona.comentario);
-                formData.append("asistencia", persona.asistencia);
-                formData.append("cantidad-personas", cantidad);
+            // Crear un solo objeto con todos los datos
+            const payload = {
+                cantidad: cantidad,
+                personas: personasData,
+            };
 
-                await fetch(scriptURL, {
-                    method: "POST",
-                    body: formData,
-                });
+            // Enviar como JSON en una sola petición
+            const response = await fetch(scriptURL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(payload),
+            });
+
+            if (response.ok) {
+                mostrarConfirmacionExito(cantidad, nombres);
+            } else {
+                throw new Error("Error en la respuesta del servidor");
             }
-
-            mostrarConfirmacionExito(cantidad, nombres);
         } catch (error) {
             console.error("Error:", error);
             mostrarErrorConfirmacion();
