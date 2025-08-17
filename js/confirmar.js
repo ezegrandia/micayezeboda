@@ -6,6 +6,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const personasContainer = document.getElementById("personas-container");
     const confirmarForm = document.getElementById("confirmar-form");
 
+    // URL de tu Apps Script (REEMPLAZAR CON TU URL AL HACER EL DEPLOY)
+    const scriptURL =
+        "https://script.google.com/macros/s/AKfycbzF4TMM2f-wldccE3iCRmz1UzN5zBpZFGncQwGfANKash25TM0VxPrL0stQWe8DOC9l/exec";
+
     // Generar formularios según cantidad de personas seleccionada
     function generarFormulariosPersonas(cantidad) {
         personasContainer.innerHTML = "";
@@ -124,6 +128,60 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    // Mostrar mensaje de error
+    function mostrarErrorConfirmacion() {
+        const modalOverlay = document.createElement("div");
+        modalOverlay.className = "confirmacion-overlay";
+
+        const modalContent = document.createElement("div");
+        modalContent.className = "confirmacion-modal error";
+
+        modalContent.innerHTML = `
+            <h2>¡Error al confirmar!</h2>
+            <p>Ocurrió un problema al procesar tu confirmación. Por favor intenta nuevamente más tarde.</p>
+            <button class="confirmacion-cerrar-btn">Cerrar</button>
+        `;
+
+        modalOverlay.appendChild(modalContent);
+        document.body.appendChild(modalOverlay);
+
+        const cerrarBtn = modalContent.querySelector(".confirmacion-cerrar-btn");
+        cerrarBtn.addEventListener("click", () => {
+            document.body.removeChild(modalOverlay);
+        });
+    }
+
+    // Enviar datos a Google Sheets
+    async function enviarDatosGoogleSheets(personasData, cantidad, nombres) {
+        try {
+            // Enviar cada persona como fila separada
+            for (const persona of personasData) {
+                const response = await fetch(scriptURL, {
+                    method: "POST",
+                    body: JSON.stringify({
+                        ...persona,
+                        "cantidad-personas": cantidad,
+                    }),
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                });
+
+                if (!response.ok) throw new Error("Error en la respuesta");
+            }
+
+            mostrarConfirmacionExito(cantidad, nombres);
+        } catch (error) {
+            console.error("Error:", error);
+            mostrarErrorConfirmacion();
+        } finally {
+            // Limpiar formulario
+            confirmarForm.reset();
+            personasContainer.innerHTML = "";
+            cantidadPersonas.selectedIndex = 0;
+        }
+    }
+
     // Event listeners
     cantidadPersonas.addEventListener("change", function () {
         const cantidad = parseInt(this.value);
@@ -135,28 +193,41 @@ document.addEventListener("DOMContentLoaded", function () {
         const formData = new FormData(this);
         const data = Object.fromEntries(formData.entries());
         const cantidad = parseInt(data["cantidad-personas"]);
+        const asistencia = cantidad > 0 ? "Sí" : "No";
 
-        console.log("Datos de confirmación:", data);
-
-        // Obtener nombres de las personas
+        // Obtener nombres para el mensaje y datos para Sheets
         let nombres = [];
+        let personasData = [];
 
         if (cantidad === 0) {
             nombres.push(data["nombre-no-asistencia"]);
+            personasData.push({
+                nombre: data["nombre-no-asistencia"],
+                apellido: data["apellido-no-asistencia"],
+                dni: "",
+                alimentacion: "",
+                comentario: data["comentario-no-asistencia"] || "",
+                asistencia: "No",
+            });
         } else {
             for (let i = 1; i <= cantidad; i++) {
                 const nombre = data[`persona-${i}-nombre`];
-                if (nombre) nombres.push(nombre);
+                if (nombre) {
+                    nombres.push(nombre);
+                    personasData.push({
+                        nombre: data[`persona-${i}-nombre`],
+                        apellido: data[`persona-${i}-apellido`],
+                        dni: data[`persona-${i}-dni`],
+                        alimentacion: data[`persona-${i}-alimentacion`] || "",
+                        comentario: data[`persona-${i}-comentario`] || "",
+                        asistencia: "Sí",
+                    });
+                }
             }
         }
 
-        // Mostrar mensaje de confirmación
-        mostrarConfirmacionExito(cantidad, nombres);
-
-        // Limpiar formulario
-        this.reset();
-        personasContainer.innerHTML = "";
-        cantidadPersonas.selectedIndex = 0;
+        // Enviar datos a Google Sheets
+        enviarDatosGoogleSheets(personasData, cantidad, nombres);
     });
 
     // Inicializar placeholders

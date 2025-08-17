@@ -257,6 +257,16 @@
     color: #8a6d3b;
 }
 
+/* Estilo para modal de error */
+.confirmacion-modal.error {
+    background: #fff0f0;
+    border: 1px solid #ffcccc;
+}
+
+.confirmacion-modal.error h2 {
+    color: #d9534f;
+}
+
 /* ======================== */
 /* MEDIA QUERIES */
 /* ======================== */
