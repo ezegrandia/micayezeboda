@@ -5,16 +5,21 @@ const closeBtn = document.getElementById("modal-close");
 const modalContent = document.getElementById("modal-content");
 const modalIcon = document.getElementById("modal-icon-img");
 let currentModalOpen = null;
+let scrollPos = 0;
 
-// 🔹 URL de tu Apps Script (reemplazá por la tuya)
-const SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbzlzOvlsP_XtA1oMQsntL5k20Dvp6MloOCn8FD11uAnc8HvjPgGD8HNrGChuYNMt3UV/exec";
-
-// Utilidad: mostrar/ocultar loader global del form
-function toggleFormLoader(show) {
-    const loader = document.getElementById("form-loader");
-    if (loader) loader.style.display = show ? "flex" : "none";
+// Mostrar loader
+function mostrarLoader() {
+    document.getElementById("form-loader").style.display = "flex";
 }
+
+// Ocultar loader
+function ocultarLoader() {
+    document.getElementById("form-loader").style.display = "none";
+}
+
+// URL de tu Apps Script (⚠️ reemplazá con tu URL de despliegue)
+const scriptURL =
+    "https://script.google.com/macros/s/AKfycbyUqb0fATpFqbUwCkYmeqrrLbIPlBV1_GggfEd_rR-qCZ7zcNyIm5mPvFebUQg7GHDj/exec";
 
 // Configuración de los modales
 const modalData = {
@@ -80,66 +85,42 @@ const modalData = {
     },
 };
 
+function capitalizar(texto) {
+    return texto.toLowerCase().replace(/(^|\s)\S/g, function (c) {
+        return c.toUpperCase();
+    });
+}
+
 //Ocultar placeholders de los inputs del formulario al hacer focus
 function setupFormPlaceholders() {
     const inputs = document.querySelectorAll(".form-cancion input");
 
     inputs.forEach((input) => {
-        // Guardar el placeholder original
         const originalPlaceholder = input.placeholder;
-
-        input.addEventListener("focus", () => {
-            input.placeholder = "";
-        });
-
+        input.addEventListener("focus", () => (input.placeholder = ""));
         input.addEventListener("blur", () => {
-            if (input.value === "") {
-                input.placeholder = originalPlaceholder;
-            }
+            if (input.value === "") input.placeholder = originalPlaceholder;
         });
     });
 }
 
 // Función para copiar texto al portapapeles
 function setupCopyButtons() {
-    // Crear elemento para mensaje de copiado
     const copiedMessage = document.createElement("div");
     copiedMessage.className = "copied-message";
     copiedMessage.textContent = "¡Copiado!";
     document.body.appendChild(copiedMessage);
 
-    // Manejar clic en botones de copiar
     document.addEventListener("click", (e) => {
         if (e.target.closest(".copy-btn")) {
             const btn = e.target.closest(".copy-btn");
             const targetId = btn.getAttribute("data-target");
             const textToCopy = document.getElementById(targetId).textContent;
 
-            navigator.clipboard
-                .writeText(textToCopy)
-                .then(() => {
-                    // Mostrar mensaje de copiado
-                    copiedMessage.style.display = "block";
-                    setTimeout(() => {
-                        copiedMessage.style.display = "none";
-                    }, 2000);
-                })
-                .catch((err) => {
-                    console.error("Error al copiar: ", err);
-                    // Fallback para navegadores que no soportan clipboard API
-                    const textArea = document.createElement("textarea");
-                    textArea.value = textToCopy;
-                    document.body.appendChild(textArea);
-                    textArea.select();
-                    document.execCommand("copy");
-                    document.body.removeChild(textArea);
-
-                    copiedMessage.textContent = "¡Copiado! (método alternativo)";
-                    copiedMessage.style.display = "block";
-                    setTimeout(() => {
-                        copiedMessage.style.display = "none";
-                    }, 2000);
-                });
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                copiedMessage.style.display = "block";
+                setTimeout(() => (copiedMessage.style.display = "none"), 2000);
+            });
         }
     });
 }
@@ -148,7 +129,7 @@ function setupCopyButtons() {
 function handleBackButton() {
     if (currentModalOpen) {
         closeModal();
-        return true; // Indicar que manejamos el evento
+        return true;
     }
     return false;
 }
@@ -159,21 +140,16 @@ document.querySelectorAll(".open-modal").forEach((btn) => {
         const type = btn.dataset.modal;
         const data = modalData[type];
 
-        // Verificar que los datos del modal existan
         if (!data) {
             console.error(`Modal data not found for type: ${type}`);
             return;
         }
 
-        // Registrar modal abierto
         currentModalOpen = type;
-        // Agregar estado al historial
         window.history.pushState({ modalOpen: true }, "");
 
-        // Limpiar contenido previo
         modalContent.innerHTML = "";
 
-        // Agregar título
         if (data.title) {
             const modalTitle = document.createElement("h2");
             modalTitle.textContent = data.title;
@@ -181,12 +157,10 @@ document.querySelectorAll(".open-modal").forEach((btn) => {
             modalContent.appendChild(modalTitle);
         }
 
-        // Crear contenedor de texto
         const textContainer = document.createElement("div");
         textContainer.id = "modal-text";
         modalContent.appendChild(textContainer);
 
-        // Agregar texto si existe
         if (data.text && data.text.length > 0) {
             data.text.forEach((parrafo) => {
                 const div = document.createElement("div");
@@ -196,7 +170,6 @@ document.querySelectorAll(".open-modal").forEach((btn) => {
             });
         }
 
-        // Agregar imagen si existe
         if (data.image) {
             const img = document.createElement("img");
             img.src = data.image;
@@ -205,33 +178,27 @@ document.querySelectorAll(".open-modal").forEach((btn) => {
             textContainer.appendChild(img);
         }
 
-        // Agregar formulario si existe
         if (data.form) {
             const divForm = document.createElement("div");
             divForm.innerHTML = data.form;
             modalContent.appendChild(divForm);
         }
 
-        // Configurar icono
         if (modalIcon && data.icon) {
             modalIcon.src = data.icon;
             modalIcon.style.width = data.iconSize;
             modalIcon.style.height = data.iconSize;
         }
 
-        // Mostrar modal y bloquear scroll
         overlay.style.display = "block";
         modal.style.display = "flex";
         document.documentElement.style.overflow = "hidden";
         document.body.style.overflow = "hidden";
         document.body.classList.add("bloqueo-scroll");
 
-        // Después de mostrar el modal
         setTimeout(() => {
             setupCopyButtons();
-            if (btn.dataset.modal === "cancion") {
-                setupFormPlaceholders();
-            }
+            if (btn.dataset.modal === "cancion") setupFormPlaceholders();
         }, 100);
     });
 });
@@ -268,45 +235,45 @@ document.addEventListener("submit", function (e) {
 
         console.log("Canción sugerida:", data);
 
-        // ⚠️ poné acá la URL de tu App Script desplegado como "Aplicación web"
-        const scriptURL =
-            "https://script.google.com/macros/s/AKfycbzlzOvlsP_XtA1oMQsntL5k20Dvp6MloOCn8FD11uAnc8HvjPgGD8HNrGChuYNMt3UV/exec";
+        // Convertir a URL-encoded
+        const body = new URLSearchParams(data).toString();
+
+        mostrarLoader(); // 🔹 Mostrar loader antes de enviar
 
         fetch(scriptURL, {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body,
         })
             .then((res) => res.json())
             .then((res) => {
-                console.log("Respuesta del servidor:", res); // 👈 te muestra el error exacto
                 if (res.success) {
-                    // Mostrar mensaje de confirmación
-                    modalContent.innerHTML = `
-                    <h2 class="modal-title">¡Gracias por tu sugerencia!</h2>
-                    <div class="modal-block">
-                        <p>Hemos recibido tu canción "${data.cancion}".</p>
-                        <p>¡Esperamos verte en la fiesta!</p>
-                    </div>
-                `;
+                    const nombreCapitalizado = capitalizar(data.nombre || "");
+                    const cancionCapitalizada = capitalizar(data.cancion || "");
 
-                    // Cerrar automáticamente después de 6 segundos
-                    setTimeout(closeModal, 6000);
+                    modalContent.innerHTML = `
+                    <h2 class="modal-title">¡Gracias por tu sugerencia, ${nombreCapitalizado}!</h2>
+                    <div class="modal-block">
+                    <p>Hemos recibido tu canción <strong>"${cancionCapitalizada}"</strong>.</p>
+                    <p>¡Seguro será un temazo en la fiesta! 🎶</p>
+                    </div>
+                    `;
+                    // setTimeout(closeModal, 6000);
                 } else {
-                    throw new Error(res.error || "Error desconocido en el servidor");
+                    throw new Error(res.error || "Hubo un error desconocido");
                 }
             })
             .catch((err) => {
                 console.error("Error al enviar:", err);
                 modalContent.innerHTML = `
-                <h2 class="modal-title">Hubo un error</h2>
-                <div class="modal-block">
-                    <p>No pudimos enviar tu sugerencia. Por favor, intentá de nuevo.</p>
-                </div>
-            `;
-                setTimeout(closeModal, 6000);
+                    <h2 class="modal-title">Hubo un error</h2>
+                    <div class="modal-block">
+                        <p>No pudimos registrar tu sugerencia. Por favor intentá de nuevo.</p>
+                    </div>
+                `;
+            })
+            .finally(() => {
+                ocultarLoader(); // 🔹 Ocultar loader al terminar
             });
     }
 });
