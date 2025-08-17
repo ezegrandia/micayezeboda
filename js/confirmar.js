@@ -6,16 +6,24 @@ document.addEventListener("DOMContentLoaded", function () {
     const personasContainer = document.getElementById("personas-container");
     const confirmarForm = document.getElementById("confirmar-form");
 
-    // URL de tu Apps Script (REEMPLAZAR CON TU URL AL HACER EL DEPLOY)
+    // URL de tu Apps Script
     const scriptURL =
-        "https://script.google.com/macros/s/AKfycbw3V37ZL8YuaIrWtqIBU6S_WPfoOAuGATK79kiv7psYREiylgQxXTPkzz-x4OPNIl2a/exec";
+        "https://script.google.com/macros/s/AKfycbzWGz0fWgFMiSMug_zR74rkQzvAigjTSMN8T6XMCTsSbsbzPS8DSUz-tKtvmg-gd3BN/exec";
+
+    // 🔹 Función para capitalizar nombres
+    function capitalizar(str) {
+        if (!str) return "";
+        return str
+            .trim()
+            .toLowerCase()
+            .replace(/\b\w/g, (c) => c.toUpperCase());
+    }
 
     // Generar formularios según cantidad de personas seleccionada
     function generarFormulariosPersonas(cantidad) {
         personasContainer.innerHTML = "";
 
         if (cantidad === 0) {
-            // Caso de no asistencia
             const noAsistenciaHTML = `
                 <div class="no-asistencia-container">
                     <p class="no-asistencia-texto">Lamentamos que no puedas asistir. 
@@ -33,7 +41,6 @@ document.addEventListener("DOMContentLoaded", function () {
             `;
             personasContainer.innerHTML = noAsistenciaHTML;
         } else if (cantidad > 0) {
-            // Generar formularios para cada persona
             for (let i = 1; i <= cantidad; i++) {
                 const personaHTML = `
                     <div class="persona-form" data-persona="${i}">
@@ -60,7 +67,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
-        // Configurar placeholders dinámicamente
         setupConfirmacionPlaceholders();
     }
 
@@ -96,19 +102,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (cantidad === 0) {
             titulo = "Lamentamos que no puedas asistir";
-            mensaje = `Gracias por informarnos, ${nombres[0]}. 
+            mensaje = `Gracias por informarnos, ${capitalizar(nombres[0])}. 
             <br><br>Hemos registrado que no podrás acompañarnos. 
             <br><br>¡Te extrañaremos en nuestro gran día!`;
         } else if (cantidad === 1) {
             titulo = "¡Confirmación exitosa!";
-            mensaje = `¡Gracias por confirmar, ${nombres[0]}! 
+            mensaje = `¡Gracias por confirmar, ${capitalizar(nombres[0])}! 
             <br><br>Hemos registrado tu asistencia. 
             <br><br>¡Esperamos verte en nuestro gran día!`;
         } else {
             titulo = "¡Confirmación exitosa!";
-            const otrosNombres = nombres.slice(1).join(", ");
-            mensaje = `¡Gracias por confirmar, ${nombres[0]}! 
-            <br><br>Hemos registrado la asistencia de ${cantidad} personas (${nombres.join(", ")}). 
+            const nombresCapitalizados = nombres.map((n) => capitalizar(n));
+            mensaje = `¡Gracias por confirmar, ${nombresCapitalizados[0]}! 
+            <br><br>Hemos registrado la asistencia de ${cantidad} personas (${nombresCapitalizados.join(", ")}). 
             <br><br>¡Esperamos verlos en nuestro gran día!`;
         }
 
@@ -121,7 +127,6 @@ document.addEventListener("DOMContentLoaded", function () {
         modalOverlay.appendChild(modalContent);
         document.body.appendChild(modalOverlay);
 
-        // Cerrar modal
         const cerrarBtn = modalContent.querySelector(".confirmacion-cerrar-btn");
         cerrarBtn.addEventListener("click", () => {
             document.body.removeChild(modalOverlay);
@@ -151,9 +156,21 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Enviar datos a Google Sheets versión corregida
+    // Mostrar loader
+    function mostrarLoader() {
+        document.getElementById("form-loader").style.display = "flex";
+    }
+
+    // Ocultar loader
+    function ocultarLoader() {
+        document.getElementById("form-loader").style.display = "none";
+    }
+
+    // Enviar datos a Google Sheets
     async function enviarDatosGoogleSheets(personasData, cantidad, nombres) {
         try {
+            mostrarLoader(); // 🔹 Mostrar loader al enviar
+
             const formData = new FormData();
             formData.append("cantidad", cantidad);
             formData.append("personas", JSON.stringify(personasData));
@@ -172,6 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error("Error:", error);
             mostrarErrorConfirmacion();
         } finally {
+            ocultarLoader(); // 🔹 Ocultar loader cuando termine
             confirmarForm.reset();
             personasContainer.innerHTML = "";
             cantidadPersonas.selectedIndex = 0;
