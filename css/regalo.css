@@ -3,7 +3,7 @@
     position: relative;
     top: -15px;
     padding-top: 50px;
-    padding-bottom: 150px;
+    padding-bottom: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -70,6 +70,9 @@
 }
 
 @media screen and (max-width: 1024px) {
+    .regalo-section {
+        padding-bottom: 300px;
+    }
     .decor-izq-regalo {
         top: 530px;
         height: 330px;
@@ -84,6 +87,7 @@
 
 @media screen and (max-width: 768px) {
     .regalo-section {
+        padding-bottom: 200px;
         padding-top: 50px;
         top: -20px;
     }
@@ -133,7 +137,7 @@
         padding-top: 0;
         top: -30px;
         /* border: 2px solid red; */
-        padding-bottom: 300px;
+        padding-bottom: 400px;
     }
     .contenedor-ondas-4 {
         top: -200px;
