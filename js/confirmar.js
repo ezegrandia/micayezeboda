@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // URL de tu Apps Script (REEMPLAZAR CON TU URL AL HACER EL DEPLOY)
     const scriptURL =
-        "https://script.google.com/macros/s/AKfycbzZ61tbInJmj1PvAUspGrgP-2LT_PzdwuP6yT4bN-FLCBj7l-Hc8x0afh3dgg-R6dU/exec";
+        "https://script.google.com/macros/s/AKfycbw3V37ZL8YuaIrWtqIBU6S_WPfoOAuGATK79kiv7psYREiylgQxXTPkzz-x4OPNIl2a/exec";
 
     // Generar formularios según cantidad de personas seleccionada
     function generarFormulariosPersonas(cantidad) {
@@ -154,19 +154,13 @@ document.addEventListener("DOMContentLoaded", function () {
     // Enviar datos a Google Sheets versión corregida
     async function enviarDatosGoogleSheets(personasData, cantidad, nombres) {
         try {
-            // Crear un solo objeto con todos los datos
-            const payload = {
-                cantidad: cantidad,
-                personas: personasData,
-            };
+            const formData = new FormData();
+            formData.append("cantidad", cantidad);
+            formData.append("personas", JSON.stringify(personasData));
 
-            // Enviar como JSON en una sola petición
             const response = await fetch(scriptURL, {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(payload),
+                body: formData,
             });
 
             if (response.ok) {
