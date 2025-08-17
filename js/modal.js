@@ -11,7 +11,7 @@ const modalData = {
     dresscode: {
         title: "Dress Code",
         text: [
-            "Queremos que disfrutes y te sientas cómodo.",
+            "Queremos que disfrutes y te sientas cómodo/a.",
             "El código de vestimenta será <strong>elegante y formal</strong>.",
             "El <span>blanco</span> es prioridad para la novia",
         ],
