@@ -25,10 +25,11 @@ const modalData = {
         form: `
             <div class="datos-bancarios">
                 <h3>Datos para transferencia:</h3>
-                <p><strong>Banco:</strong> Nombre del Banco</p>
-                <p><strong>CBU:</strong> 1234567890123456789012</p>
-                <p><strong>Alias:</strong> MIKEYEZE.LUNA</p>
-                <p><strong>Titular:</strong> Micaela y Ezequiel</p>
+                <p><strong>Banco:</strong>Mercado Pago</p>
+                <p><strong>CBU:</strong>0000003100007877635902</p>
+                <p><strong>Alias:</strong>micayeze.boda</p>
+                <p><strong>Titular:</strong>Ezequiel Emiliano Grandia</p>
+                <p><strong>CUIL:</strong>20389088006</p>
             </div>
         `,
         icon: "./assets/img/gift.svg",

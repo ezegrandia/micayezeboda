@@ -98,7 +98,7 @@
 /* Bloques de contenido */
 .modal-block {
     padding: 15px;
-    background: #d8f5e82f;
+    /* background: #d8f5e82f; */
     width: 100%;
     box-sizing: border-box;
 }
@@ -197,7 +197,7 @@
     max-width: 400px;
     margin-top: 20px;
     padding: 20px;
-    background: #f8f8f8;
+    /* background: #d8f5e82f; */
     border-radius: 8px;
     box-sizing: border-box;
 }
@@ -205,19 +205,25 @@
 .datos-bancarios h3 {
     color: #bfa880;
     margin-top: 0;
-    margin-bottom: 15px;
+    margin-bottom: 40px;
     font-size: 1.2rem;
+    font-weight: 600;
+    font-family: var(--font-texto);
 }
 
 .datos-bancarios p {
-    margin: 10px 0;
-    color: #4a6360;
+    margin: 20px 0;
+    color: #000;
     font-size: 0.95rem;
+    text-align: left;
+    font-family: var(--font-texto);
 }
 
 .datos-bancarios strong {
     color: #bfa880;
     font-weight: 600;
+    margin-right: 10px;
+    font-family: var(--font-texto);
 }
 
 /* Bloqueo de scroll */
@@ -232,7 +238,7 @@
 @media screen and (max-width: 768px) {
     .custom-modal {
         width: 90%;
-        height: 80vh;
+        height: 75vh;
         padding: 70px 20px 30px;
     }
 
