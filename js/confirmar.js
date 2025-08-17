@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // URL de tu Apps Script (REEMPLAZAR CON TU URL AL HACER EL DEPLOY)
     const scriptURL =
-        "https://script.google.com/macros/s/AKfycbzF4TMM2f-wldccE3iCRmz1UzN5zBpZFGncQwGfANKash25TM0VxPrL0stQWe8DOC9l/exec";
+        "https://script.google.com/macros/s/AKfycbwKpG3T6qtS_oF8jN5O6PwE8fhMK2an3gEk2y0LrQSx1DRQ8RSqG-b69oapOHtozZo6/exec";
 
     // Generar formularios según cantidad de personas seleccionada
     function generarFormulariosPersonas(cantidad) {
@@ -154,20 +154,20 @@ document.addEventListener("DOMContentLoaded", function () {
     // Enviar datos a Google Sheets
     async function enviarDatosGoogleSheets(personasData, cantidad, nombres) {
         try {
-            // Enviar cada persona como fila separada
             for (const persona of personasData) {
-                const response = await fetch(scriptURL, {
-                    method: "POST",
-                    body: JSON.stringify({
-                        ...persona,
-                        "cantidad-personas": cantidad,
-                    }),
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                });
+                const formData = new FormData();
+                formData.append("nombre", persona.nombre);
+                formData.append("apellido", persona.apellido);
+                formData.append("dni", persona.dni);
+                formData.append("alimentacion", persona.alimentacion);
+                formData.append("comentario", persona.comentario);
+                formData.append("asistencia", persona.asistencia);
+                formData.append("cantidad-personas", cantidad);
 
-                if (!response.ok) throw new Error("Error en la respuesta");
+                await fetch(scriptURL, {
+                    method: "POST",
+                    body: formData,
+                });
             }
 
             mostrarConfirmacionExito(cantidad, nombres);
@@ -175,7 +175,6 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error("Error:", error);
             mostrarErrorConfirmacion();
         } finally {
-            // Limpiar formulario
             confirmarForm.reset();
             personasContainer.innerHTML = "";
             cantidadPersonas.selectedIndex = 0;
@@ -195,7 +194,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const cantidad = parseInt(data["cantidad-personas"]);
         const asistencia = cantidad > 0 ? "Sí" : "No";
 
-        // Obtener nombres para el mensaje y datos para Sheets
         let nombres = [];
         let personasData = [];
 
@@ -226,10 +224,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
-        // Enviar datos a Google Sheets
         enviarDatosGoogleSheets(personasData, cantidad, nombres);
     });
 
-    // Inicializar placeholders
     setupConfirmacionPlaceholders();
 });
