@@ -21,7 +21,7 @@
     height: 500px;
     border-radius: 30px;
     background: #fdfdfd;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.8);
     padding: 80px 30px 40px;
     display: none;
     z-index: 999;
@@ -40,7 +40,7 @@
     height: 80px;
     border-radius: 50%;
     background: white;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -234,6 +234,70 @@
     height: 100%;
 }
 
+/* Estilos para los botones de copiar */
+.dato-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* margin: 15px 0; */
+}
+
+.copy-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.2s;
+}
+
+.copy-btn:hover {
+    transform: scale(1.1);
+}
+
+.copy-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.copy-text {
+    /* background-color: #f5f5f5; */
+    background: #d8f5e880;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-family: monospace;
+    user-select: all;
+}
+
+/* Mensaje de copiado */
+.copied-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+    display: none;
+    animation: fadeInOut 2s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 /* Responsive */
 @media screen and (max-width: 768px) {
     .custom-modal {
@@ -263,6 +327,7 @@
     .custom-modal {
         width: 95%;
         padding: 60px 15px 25px;
+        padding: 0;
         /* height: 70vh; */
     }
 
@@ -290,10 +355,6 @@
 }
 
 @media screen and (max-width: 380px) {
-    .custom-modal {
-        padding: 60px 12px 20px;
-    }
-
     #modal-content {
         max-height: calc(90vh - 150px);
     }
@@ -303,11 +364,22 @@
     }
 }
 
-@media screen and (max-width: 300px) {
-    .custom-modal {
-        padding: 50px 10px 15px;
+@media screen and (max-width: 368px) {
+    .datos-bancarios p {
+        font-size: 0.8rem;
     }
+}
 
+@media screen and (max-width: 331px) {
+    .datos-bancarios {
+        padding: 0;
+    }
+    .datos-bancarios p {
+        font-size: 0.6rem;
+    }
+}
+
+@media screen and (max-width: 300px) {
     #modal-content {
         max-height: calc(90vh - 140px);
     }

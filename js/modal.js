@@ -16,24 +16,8 @@ const modalData = {
         ],
         form: "",
         icon: "./assets/img/bow-icon.svg",
-        iconSize: "50px",
+        iconSize: "60px",
         image: "./assets/img/novios-icono.svg",
-    },
-    regalo: {
-        title: "Regalo",
-        text: "",
-        form: `
-            <div class="datos-bancarios">
-                <h3>Datos para transferencia:</h3>
-                <p><strong>Banco:</strong>Mercado Pago</p>
-                <p><strong>CBU:</strong>0000003100007877635902</p>
-                <p><strong>Alias:</strong>micayeze.boda</p>
-                <p><strong>Titular:</strong>Ezequiel Emiliano Grandia</p>
-                <p><strong>CUIL:</strong>20389088006</p>
-            </div>
-        `,
-        icon: "./assets/img/gift.svg",
-        iconSize: "50px",
     },
     cancion: {
         title: "Sugerir Canción",
@@ -58,7 +42,76 @@ const modalData = {
         icon: "./assets/img/song-icon.svg",
         iconSize: "50px",
     },
+    regalo: {
+        title: "Regalo",
+        text: "",
+        form: `
+        <div class="datos-bancarios">
+            <h3>Datos para transferencia:</h3>
+            <p><strong>Banco:</strong> Mercado Pago</p>
+            <div class="dato-container">
+                <p><strong>CBU:</strong> <span id="cbu-text" class="copy-text">0000003100007877635902</span></p>
+                <button class="copy-btn" data-target="cbu-text">
+                    <img src="./assets/img/copy-icon.png" alt="Copiar CBU" class="copy-icon">
+                </button>
+            </div>
+            <div class="dato-container">
+                <p><strong>Alias:</strong> <span id="alias-text" class="copy-text">micayeze.boda</span></p>
+                <button class="copy-btn" data-target="alias-text">
+                    <img src="./assets/img/copy-icon.png" alt="Copiar Alias" class="copy-icon">
+                </button>
+            </div>
+            <p><strong>Titular:</strong> Ezequiel Emiliano Grandia</p>
+        </div>
+    `,
+        icon: "./assets/img/gift.svg",
+        iconSize: "35px",
+    },
 };
+
+// Función para copiar texto al portapapeles
+function setupCopyButtons() {
+    // Crear elemento para mensaje de copiado
+    const copiedMessage = document.createElement("div");
+    copiedMessage.className = "copied-message";
+    copiedMessage.textContent = "¡Copiado!";
+    document.body.appendChild(copiedMessage);
+
+    // Manejar clic en botones de copiar
+    document.addEventListener("click", (e) => {
+        if (e.target.closest(".copy-btn")) {
+            const btn = e.target.closest(".copy-btn");
+            const targetId = btn.getAttribute("data-target");
+            const textToCopy = document.getElementById(targetId).textContent;
+
+            navigator.clipboard
+                .writeText(textToCopy)
+                .then(() => {
+                    // Mostrar mensaje de copiado
+                    copiedMessage.style.display = "block";
+                    setTimeout(() => {
+                        copiedMessage.style.display = "none";
+                    }, 2000);
+                })
+                .catch((err) => {
+                    console.error("Error al copiar: ", err);
+                    // Fallback para navegadores que no soportan clipboard API
+                    const textArea = document.createElement("textarea");
+                    textArea.value = textToCopy;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand("copy");
+                    document.body.removeChild(textArea);
+
+                    copiedMessage.textContent = "¡Copiado! (método alternativo)";
+                    copiedMessage.style.display = "block";
+                    setTimeout(() => {
+                        copiedMessage.style.display = "none";
+                    }, 2000);
+                });
+        }
+    });
+}
 
 // Función para abrir modales
 document.querySelectorAll(".open-modal").forEach((btn) => {
@@ -127,6 +180,9 @@ document.querySelectorAll(".open-modal").forEach((btn) => {
         document.documentElement.style.overflow = "hidden";
         document.body.style.overflow = "hidden";
         document.body.classList.add("bloqueo-scroll");
+
+        // Después de mostrar el modal, configurar los botones de copiar
+        setTimeout(setupCopyButtons, 100);
     });
 });
 
