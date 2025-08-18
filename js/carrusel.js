@@ -42,7 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
         indiceActual = indice;
         carrusel.style.transition = "transform 0.5s ease-in-out";
         centrarSlide(indiceActual);
-        actualizarIndicadores();
         reiniciarAuto();
     }
 
@@ -51,14 +50,16 @@ document.addEventListener("DOMContentLoaded", function () {
         let realIndex = indiceActual - 1;
         if (realIndex === -1) realIndex = originales.length - 1;
         if (realIndex === originales.length) realIndex = 0;
-        indicadores[realIndex].classList.add("activo");
+
+        if (indicadores[realIndex]) {
+            indicadores[realIndex].classList.add("activo");
+        }
     }
 
     function siguienteSlide() {
         indiceActual++;
         carrusel.style.transition = "transform 0.5s ease-in-out";
         centrarSlide(indiceActual);
-        actualizarIndicadores();
     }
 
     function iniciarAuto() {
@@ -82,6 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
             indiceActual = originales.length;
             centrarSlide(indiceActual);
         }
+        actualizarIndicadores(); // 👈 se actualizan los indicadores solo cuando el índice ya está corregido
     });
 
     // Inicializar
