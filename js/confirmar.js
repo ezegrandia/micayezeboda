@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // URL de tu Apps Script
     const scriptURL =
-        "https://script.google.com/macros/s/AKfycbw7mM5t0C0k-aRaJe7UatSG7-oarWRUE_D00f2br021zvJ0pfxk6rHV6z3dIBZETi80/exec";
+        "https://script.google.com/macros/s/AKfycbzL6wgaf2-Is0uzNLT5o2f95tdWsW8yONGB4BxYjCgTM_XgWZOwBUxt1Trf9jCOSofy/exec";
 
     // 🔹 Función para capitalizar nombres
     function capitalizar(str) {
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return str
             .trim()
             .toLowerCase()
-            .replace(/\b\w/g, (c) => c.toUpperCase());
+            .replace(/(^|[\s\-'])[\p{L}]/gu, (c) => c.toUpperCase());
     }
 
     // Generar formularios según cantidad de personas seleccionada
