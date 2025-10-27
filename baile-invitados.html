@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mica & Eze - Boda</title>
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+    <link rel="stylesheet" href="css/reset.css?v=19">
+    <link rel="stylesheet" href="css/base.css?v=19">
+    <link rel="stylesheet" href="css/entrada.css">
+    <link rel="stylesheet" href="css/main.css?v=19">
+    <link rel="stylesheet" href="css/animations-decor.css?v=19">
+    <link rel="stylesheet" href="css/contador.css?v=19">
+    <link rel="stylesheet" href="css/itinerario.css?v=20">
+    <link rel="stylesheet" href="css/modal-iglesiaysalon.css?v=3">
+    <link rel="stylesheet" href="css/separador2.css">
+    <link rel="stylesheet" href="css/galeria.css">
+    <link rel="stylesheet" href="css/fiesta.css">
+    <link rel="stylesheet" href="css/regalo.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/confirmar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/baile.css">
+    <link rel="stylesheet" href="css/baile-invitados.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Open+Sans:wght@300;400;700&display=swap"
+        rel="stylesheet" />
+</head>
+
+<!-- Loader para el formulario -->
+<div id="form-loader" class="form-loader-overlay">
+    <div class="form-loader-content">
+        <dotlottie-wc class="form-loader-icon"
+            src="https://lottie.host/f1569777-f533-4443-9d44-f3bceb423dd9/0hiL5zIQO6.lottie" speed="1" autoplay
+            loop></dotlottie-wc>
+        <p class="form-loader-text">Enviando tus datos...</p>
+    </div>
+</div>
+
+
+<body class="body bloqueo-scroll">
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <dotlottie-wc src="https://lottie.host/f1569777-f533-4443-9d44-f3bceb423dd9/0hiL5zIQO6.lottie"
+            style="width: 300px; height: 300px" speed="1" autoplay loop></dotlottie-wc>
+    </div>
+    <!-- Pantalla de entrada -->
+    <div id="pantalla-entrada" class="pantalla-entrada">
+        <div class="entrada-contenido">
+            <!-- Sombra Superior -->
+            <img src="./assets/img/sombra-superior.svg" class="sombra sombra-superior">
+            <!-- Hojas superiores -->
+            <img src="./assets/img/guirnalda-sup.svg" alt="Hojas decorativas" class="hojas hojas-arriba">
+            <!-- Texto dentro de faja -->
+            <div class="faja-texto">
+                <div class="nombres-entrada-container">
+                    <p class="entrada-nombres">Mica</p>
+                    <p class="entrada-nombres entrada-nombres-amp">&</p>
+                    <p class="entrada-nombres">Eze</p>
+                </div>
+                <!-- <h1 class="entrada-nombres">Mica & Eze</h1> -->
+            </div>
+            <!-- Hojas inferiores -->
+            <img src="./assets/img/guirnalda-inf.svg" alt="Hojas decorativas" class="hojas hojas-abajo">
+            <!-- Sombra Inferior -->
+            <img src="./assets/img/sombra-inferior.png" class="sombra sombra-inferior">
+            <div class="texto-entrada">
+                <h3 class="entrada-subtitulo">¡Nos casamos!</h3>
+                <h3 class="entrada-subtitulo">Acompañanos en este día tan especial</h3>
+            </div>
+            <!-- Botón -->
+            <button id="btn-ingresar" class="btn-ingresar">Ingresar</button>
+        </div>
+    </div>
+
+    <!-- Modal Galería Iglesia y Salon-->
+    <div id="galeriaModal" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar">&times;</span>
+            <span class="flecha izquierda">&#10094;</span>
+            <img id="imagenModal" src="" alt="Imagen de galería">
+            <span class="flecha derecha">&#10095;</span>
+        </div>
+        <div class="contador-modal-1" id="contadorModal"></div>
+    </div>
+    <!-- Seccion 1 - main -->
+    <section class="section-main">
+        <!-- Imagen -->
+        <img src="./assets/img/Edit2-Amplia-calidad5-Recorte.jpg" alt="Fondo romántico" class="main-img" />
+        <div class="main-container">
+            <!-- Decoraciones -->
+            <!-- Decoraciones SUP -->
+            <img src="./assets/img/decor-main-sup-1.svg" alt="Decoración" class="decor decor-sup decor-sup-1" />
+            <img src="./assets/img/decor-main-sup-2.svg" alt="Decoración" class="decor decor-sup decor-sup-2" />
+            <!-- Decoraciones INF -->
+            <img src="./assets/img/decor-main-inf-1.svg" alt="Decoración" class="decor decor-inf decor-inf-1" />
+            <img src="./assets/img/decor-main-inf-2.svg" alt="Decoración" class="decor decor-inf decor-inf-2" />
+            <!-- Contenido -->
+            <div class=" main-content">
+                <!-- <h3 class="mini-frase">¡Nos casamos!</h3> -->
+                <div class="fecha-linea-container">
+                    <div class="linea"></div>
+                    <h2 class="fecha">07.12.2025</h2>
+                    <div class="linea"></div>
+                </div>
+                <div class="nombres">
+                    <span class="nombre nombre-1">Mica</span>
+                    <span class="amp">&</span>
+                    <span class="nombre nombre-2">Eze</span>
+                </div>
+                <div class="linea-inf"></div>
+                <div class="frase-container">
+                    <img src="./assets/img/comilla-apertura.svg" alt="Comilla apertura" class="comilla-svg" />
+                    <p class="frase">Ni un momento, ni la eternidad <br> ¡Esto va más allá!</p>
+                    <img src="./assets/img/comilla-cierre.svg" alt="Comilla cierre" class="comilla-svg" />
+                </div>
+                <!-- Animación Lottie Music Btn -->
+                <canvas class="music-btn" id="animacion-lottie" width="100" height="100"></canvas>
+                <!-- Icono estático -->
+                <img class="music-btn music-btn-img" id="icono-estatico" src="./assets/img/icono-musica.svg">
+                <!-- Audio -->
+                <audio id="musica-fondo" src="./assets/music/musica.mp3" loop preload="auto"></audio>
+            </div>
+        </div>
+    </section>
+    <!-- Sección 2 - Contador -->
+    <div class="contador-section">
+        <div class="contenedor-ondas">
+            <div class="onda-1 onda"></div>
+            <div class="onda-2 onda"></div>
+            <div class="onda-3 onda"></div>
+        </div>
+        <div class="circulo-contenedor">
+            <div class="circulo-contador">
+                <!-- <p class="contador-palabra">Faltan</p> -->
+                <div class="contador-numeros-container">
+                    <div class="casillero-contador">
+                        <p class="tiempo-numero">10</p>
+                        <p class="tiempo-letra">días</p>
+                    </div>
+                    <div class="casillero-contador">
+                        <p class="tiempo-numero">10</p>
+                        <p class="tiempo-letra">hs</p>
+                    </div>
+                    <div class="casillero-contador">
+                        <p class="tiempo-numero">10</p>
+                        <p class="tiempo-letra">min</p>
+                    </div>
+                    <div class="casillero-contador">
+                        <p class="tiempo-numero">10</p>
+                        <p class="tiempo-letra">seg</p>
+                    </div>
+                </div>
+                <dotlottie-wc class="corazon"
+                    src="https://lottie.host/1113202c-6197-4576-be8a-b5dd80591cbd/xlXjSyH9gE.lottie" speed="1" autoplay
+                    loop></dotlottie-wc>
+            </div>
+            <div class="circulo-contador circulo-contador-shadow"></div>
+            <div class="circulo-contador-decor"></div>
+            <div class="circulo-contador-decor circulo-contador-decor-shadow"></div>
+        </div>
+    </div>
+    <!-- Sección 3 - itinerario -->
+    <section class="section-itinerario">
+        <!-- Decoraciones -->
+        <img src="./assets/img/decor-izq-1.png" alt="Decoración" class="decor decor-izq decor-izq-1" />
+        <img src="./assets/img/decor-izq-2.png" alt="Decoración" class="decor decor-izq decor-izq-2" />
+        <img src="./assets/img/decor-der-1A.png" alt="Decoración" class="decor decor-der decor-der-1" />
+        <img src="./assets/img/decor-der-2A.png" alt="Decoración" class="decor decor-der decor-der-2" />
+        <div class="itinerario-container">
+            <!-- <h2 class="titulo-seccion">Fiesta</h2> -->
+            <!-- <h3 class="subtitulo-seccion">Un día, muchos instantes para recordar</h3> -->
+            <div class="itinerario-columnas-container">
+                <div class="itinerario-column">
+                    <div class="icono-container icono-fiesta-container">
+                        <dotlottie-wc class="icono-itinerario icono-fiesta"
+                            src="https://lottie.host/1123be97-2707-45dd-af1c-12a6443c8dda/l1WI27Ubcy.lottie" speed="1"
+                            autoplay loop></dotlottie-wc>
+                    </div>
+                    <img class="banderin-itinerario" src="./assets/img/banderin-fiesta.svg">
+                    <div class="itinerario-items-container">
+                        <div class="itinerario-item">
+                            <img class="initenario-item-img" src="./assets/img/calendario.svg">
+                            <p class="itinerario-item-texto">Domingo 07 de Diciembre - 23:00hs</p>
+                        </div>
+                        <div class="itinerario-item">
+                            <img class="initenario-item-img salon-icon" src="./assets/img/bola-icono.svg">
+                            <p class="itinerario-item-texto salon-texto">Terra Oliva - Salón de Eventos</p>
+                            <button class="itinerario-item-btn salon-btn">Ver</button>
+                        </div>
+                        <div class="itinerario-item">
+                            <a href="https://maps.app.goo.gl/TuggDiFX4MMVq4CR8" target="_blank">
+                                <img class="initenario-item-img" src="./assets/img/maps-icon.svg">
+                            </a>
+                            <a href="https://maps.app.goo.gl/TuggDiFX4MMVq4CR8" target="_blank">
+                                <p class="itinerario-item-texto">Videla Aranda 351, Maipú</p>
+                            </a>
+                            <a class="itinerario-item-btn" href="https://maps.app.goo.gl/TuggDiFX4MMVq4CR8"
+                                target="_blank">Ir</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="separador-2 separador">
+        <div class="contenedor-ondas contenedor-ondas-2">
+            <div class="onda-4 onda"></div>
+            <div class="onda-5 onda"></div>
+            <div class="onda-6 onda"></div>
+        </div>
+    </section>
+    <!-- Sección 4 - Galería -->
+    <section class="galeria-section">
+        <h2 class="titulo-seccion titulo-seccion-galeria">Un poco de nosotros</h2>
+        <h3 class="subtitulo-seccion subtitulo-seccion-galeria">Instantes que guardamos en el corazón</h3>
+        <dotlottie-wc class="icono-galeria"
+            src="https://lottie.host/fc0e88cd-795f-4c7e-a18c-9f3d5bf447b3/zJkWm5tQ0I.lottie" speed="1" autoplay loop>
+        </dotlottie-wc>
+
+        <div class="carrusel-container">
+            <div class="carrusel">
+                <div class="polaroid"><img src="./assets/img/foto-polaroid-1.jpg" decoding="async" alt=""></div>
+                <div class="polaroid"><img src="./assets/img/foto-polaroid-2.jpg" decoding="async"
+                        class="polaroid-img-2" alt=""></div>
+                <div class="polaroid"><img src="./assets/img/foto-polaroid-3.jpg" decoding="async" alt=""></div>
+                <div class="polaroid"><img src="./assets/img/foto-polaroid-4.jpg" decoding="async" alt=""></div>
+                <div class="polaroid"><img src="./assets/img/foto-polaroid-5.jpg" decoding="async" alt=""></div>
+                <div class="polaroid"><img src="./assets/img/foto-polaroid-6.jpg" decoding="async" alt=""></div>
+            </div>
+        </div>
+        <div class="carrusel-indicadores"></div>
+    </section>
+    <section class="fiesta-section">
+        <div class="contenedor-ondas contenedor-ondas-3">
+            <div class="onda-7 onda"></div>
+        </div>
+        <div class="fiesta-container">
+            <h2 class="titulo-seccion titulo-seccion-fiesta">Detalles</h2>
+            <h3 class="subtitulo-seccion subtitulo-seccion-fiesta">¡Hagamos una fiesta inolvidable!</h3>
+            <img class="decor-fiesta decor-fiesta-izq" src="./assets/img/decor-fiesta-izq.png">
+            <img class="decor-fiesta decor-fiesta-der" src="./assets/img/decor-fiesta-der.png">
+            <div class="fiesta-card-container">
+                <div class="fiesta-card">
+                    <p class="fiesta-card__title">Dress Code</p>
+                    <img class="fiesta-card__icon" src="./assets/img/bow-icon.svg">
+                    <p class="fiesta-card__texto">Una orientación para
+                        tu vestuario
+                    </p>
+                    <!-- <button class="fiesta-card__btn section-btn">VER MÁS</button> -->
+                    <button class="fiesta-card__btn section-btn open-modal" data-modal="dresscode">VER MÁS</button>
+                </div>
+                <div class="fiesta-card">
+                    <p class="fiesta-card__title">Música</p>
+                    <img class="fiesta-card__icon" src="./assets/img/song-icon.svg">
+                    <p class="fiesta-card__texto">¿Cuál canción no puede faltar en la fiesta?
+                    </p>
+                    <!-- <button class="fiesta-card__btn section-btn">RECOMENDAR</button> -->
+                    <button class="fiesta-card__btn section-btn open-modal" data-modal="cancion">RECOMENDAR</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="regalo-section">
+        <!-- Decoraciones -->
+        <img src="./assets/img/decor-izq-1.png" alt="Decoración" class="decor decor-izq decor-izq-1 decor-izq-regalo" />
+        <img src="./assets/img/decor-izq-2.png" alt="Decoración" class="decor decor-izq decor-izq-2 decor-izq-regalo" />
+        <img src="./assets/img/decor-der-1A.png" alt="Decoración"
+            class="decor decor-der decor-der-1 decor-der-regalo" />
+        <img src="./assets/img/decor-der-2A.png" alt="Decoración"
+            class="decor decor-der decor-der-2 decor-der-regalo" />
+        <div class="contenedor-ondas contenedor-ondas-4">
+            <div class="onda-1 onda onda-8"></div>
+            <div class="onda-2 onda onda-9"></div>
+            <div class="onda-3 onda onda-10"></div>
+        </div>
+        <div class="titulo-container">
+            <h2 class="titulo-seccion titulo-seccion-regalo">Tarjeta</h2>
+            <h3 class="subtitulo-seccion subtitulo-seccion-regalo">Preparate para la noche más divertida
+                <br><br>
+                ¡Te esperamos para brindar y dejar todo en la pista!
+            </h3>
+        </div>
+        <div class="icono-tarjeta-1">
+        </div>
+        <!-- <button class="regalo-btn section-btn">VER MÁS</button> -->
+        <button class="tarjeta-btn section-btn open-modal" data-modal="tarjeta">VER TARJETA</button>
+    </section>
+    <section class="confirmar-section">
+        <div class="contenedor-ondas contenedor-ondas-5">
+            <div class="onda-4 onda onda-11"></div>
+            <div class="onda-5 onda onda-12"></div>
+            <div class="onda-6 onda onda-13"></div>
+        </div>
+        <div class="titulo-container">
+            <h2 class="titulo-seccion titulo-seccion-regalo">Confirmá tu asistencia</h2>
+            <h3 class="subtitulo-seccion subtitulo-seccion-regalo">
+                ¡Tenés tiempo hasta el 24 de noviembre!
+            </h3>
+        </div>
+
+        <!-- Formulario de confirmación -->
+        <div class="confirmacion-container">
+            <form id="confirmar-form" class="form-confirmacion" autocomplete="off">
+                <!-- Selección de cantidad de personas -->
+                <div class="form-group">
+                    <label for="cantidad-personas">¿Por cuántas personas confirmas?</label>
+                    <select id="cantidad-personas" name="cantidad-personas" required>
+                        <option value="" disabled selected>Selecciona una opción</option>
+                        <option value="1">1 persona</option>
+                        <option value="2">2 personas</option>
+                        <option value="3">3 personas</option>
+                        <option value="4">4 personas</option>
+                        <option value="5">5 personas</option>
+                        <option value="6">6 personas</option>
+                        <option value="0">No podré asistir</option>
+                    </select>
+                </div>
+
+                <!-- Contenedor dinámico para los formularios de personas -->
+                <div id="personas-container" class="personas-container"></div>
+
+                <!-- Botón de envío -->
+                <button type="submit" class="form-btn">Confirmar</button>
+            </form>
+        </div>
+    </section>
+    <footer class="footer">
+        <small class="small">M&E - 07.12.2025</small>
+    </footer>
+    <!-- NUEVOS MODALES -->
+    <div class="custom-modal-overlay" id="modal-overlay"></div>
+
+    <div class="custom-modal" id="custom-modal">
+        <!-- Círculo superior con ícono -->
+        <div class="modal-icon">
+            <img id="modal-icon-img" src="./assets/img/bow-icon.svg" alt="icon">
+        </div>
+
+        <!-- Botón cerrar -->
+        <button class="modal-close" id="modal-close">✕</button>
+
+        <!-- Contenido -->
+        <div id="modal-content">Texto del modal aquí...</div>
+    </div>
+    <!-- 🔹 FIN NUEVOS MODALES -->
+
+    <!-- Scripts -->
+    <!-- Music Btn -->
+    <script src="js/preloader.js"></script>
+    <script type="module" src="js/music-control.js"></script>
+    <!-- Corazon -->
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
+    <script src="js/entrada.js"></script>
+    <script src="js/animations-decor.js?v=19"></script>
+    <script src="js/ajuste-vh.js"></script>
+    <script src="js/contador.js"></script>
+    <script src="js/modal-iglesiaysalon.js"></script>
+    <script src="js/carrusel.js"></script>
+    <script src="js/modal.js?v=11"></script>
+    <script src="js/confirmar-baile.js"></script>
+</body>
+
+</html>
