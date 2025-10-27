@@ -8,7 +8,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 🔴 ⚠️ IMPORTANTE: CAMBIA ESTA URL por la de tu nuevo Google Apps Script
     // que almacenará los datos de los invitados al BAILE.
-    const scriptURL = "TU_NUEVA_URL_DE_APPS_SCRIPT_PARA_BAILE_AQUI";
+    const scriptURL =
+        "https://script.google.com/macros/s/AKfycbxuAaBvc4zhS1le7Rh2NakYvDkqCi9O3n2KtI3Dw3MoIihsYhALONfVkXK8jSy6cXPQ/exec";
 
     // 🔹 Función para capitalizar nombres
     function capitalizar(str) {
@@ -16,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return str
             .trim()
             .toLowerCase()
-            .replace(/\b\w/g, (c) => c.toUpperCase());
+            .replace(/(^|[\s\-'])[\p{L}]/gu, (c) => c.toUpperCase());
     }
 
     // Generar formularios según cantidad de personas seleccionada (SIN alimentación ni comentario)
