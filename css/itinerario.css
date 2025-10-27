@@ -134,6 +134,7 @@
     /* 🔑 Para que el <a> se comporte como botón */
     display: inline-flex;
     text-decoration: none;
+    z-index: 70;
 }
 
 .itinerario-item-btn:hover {

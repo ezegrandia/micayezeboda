@@ -1,4 +1,4 @@
-// confirmar.js - Script para el formulario de confirmación de asistencia
+// confirmar-baile.js - Script para el formulario de confirmación de asistencia al baile (sin campos de alimentación/comentario)
 
 document.addEventListener("DOMContentLoaded", function () {
     // Elementos del DOM
@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const personasContainer = document.getElementById("personas-container");
     const confirmarForm = document.getElementById("confirmar-form");
 
-    // URL de tu Apps Script
-    const scriptURL =
-        "https://script.google.com/macros/s/AKfycbw7mM5t0C0k-aRaJe7UatSG7-oarWRUE_D00f2br021zvJ0pfxk6rHV6z3dIBZETi80/exec";
+    // 🔴 ⚠️ IMPORTANTE: CAMBIA ESTA URL por la de tu nuevo Google Apps Script
+    // que almacenará los datos de los invitados al BAILE.
+    const scriptURL = "TU_NUEVA_URL_DE_APPS_SCRIPT_PARA_BAILE_AQUI";
 
     // 🔹 Función para capitalizar nombres
     function capitalizar(str) {
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .replace(/\b\w/g, (c) => c.toUpperCase());
     }
 
-    // Generar formularios según cantidad de personas seleccionada
+    // Generar formularios según cantidad de personas seleccionada (SIN alimentación ni comentario)
     function generarFormulariosPersonas(cantidad) {
         personasContainer.innerHTML = "";
 
@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
             personasContainer.innerHTML = noAsistenciaHTML;
         } else if (cantidad > 0) {
             for (let i = 1; i <= cantidad; i++) {
+                // 🛑 Se eliminan los campos de alimentación y comentario de aquí.
                 const personaHTML = `
                     <div class="persona-form" data-persona="${i}">
                         <h3 class="persona-titulo">Persona ${i}</h3>
@@ -53,15 +54,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
                         <div class="form-group">
                             <input type="text" name="persona-${i}-dni" autocomplete="off" placeholder="DNI (sin puntos, obligatorio)" 
-                                   pattern="[0-9]+" title="Por favor ingresa solo números" required>
+                                pattern="[0-9]+" title="Por favor ingresa solo números" required>
                         </div>
-                        <div class="form-group">
-                            <input type="text" name="persona-${i}-alimentacion" autocomplete="off" placeholder="Requerimiento en alimentación (opcional)">
                         </div>
-                        <div class="form-group">
-                            <input type="text" name="persona-${i}-comentario" autocomplete="off" placeholder="Comentario (opcional)">
-                        </div>
-                    </div>
                 `;
                 personasContainer.insertAdjacentHTML("beforeend", personaHTML);
             }
@@ -227,12 +222,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 const nombre = data[`persona-${i}-nombre`];
                 if (nombre) {
                     nombres.push(nombre);
+                    // 🛑 Se envían campos vacíos para mantener la estructura de datos,
+                    // pero se eliminan los inputs del formulario.
                     personasData.push({
                         nombre: data[`persona-${i}-nombre`],
                         apellido: data[`persona-${i}-apellido`],
                         dni: data[`persona-${i}-dni`],
-                        alimentacion: data[`persona-${i}-alimentacion`] || "",
-                        comentario: data[`persona-${i}-comentario`] || "",
+                        // 🔴 Se eliminan las referencias a los campos del formulario
+                        alimentacion: "",
+                        comentario: "",
                         asistencia: "Sí",
                     });
                 }

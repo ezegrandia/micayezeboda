@@ -83,6 +83,32 @@ const modalData = {
         icon: "./assets/img/gift.svg",
         iconSize: "35px",
     },
+    tarjeta: {
+        title: "Tarjeta",
+        text: "",
+        form: `
+        <div class="datos-bancarios">
+            <h3>Valor: $25.000</h3>
+            <p><strong>Banco:</strong> Mercado Pago</p>
+            <div class="dato-container">
+                <p><strong>CBU:</strong> <span id="cbu-text" class="copy-text">0000003100007877635902</span></p>
+                <button class="copy-btn" data-target="cbu-text">
+                    <img src="./assets/img/copy-icon.png" alt="Copiar CBU" class="copy-icon">
+                </button>
+            </div>
+            <div class="dato-container">
+                <p><strong>Alias:</strong> <span id="alias-text" class="copy-text">micayeze.boda</span></p>
+                <button class="copy-btn" data-target="alias-text">
+                    <img src="./assets/img/copy-icon.png" alt="Copiar Alias" class="copy-icon">
+                </button>
+            </div>
+            <p><strong>Titular:</strong> Ezequiel Emiliano Grandia</p>
+            <p>¡Enviá el comprobante por <span>WhatsApp!</span></p>
+        </div>
+    `,
+        icon: "./assets/img/gift.svg",
+        iconSize: "35px",
+    },
 };
 
 function capitalizar(texto) {
